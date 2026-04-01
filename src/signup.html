@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create a free Walela Link Services account — access cargo, delivery, errands, tourism, and more in one place." />
+  <title>Create Account | Walela Link Services</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+  <style>
+    .password-strength {
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(196,98,45,0.12);
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .password-strength-bar {
+      height: 100%;
+      width: 0;
+      border-radius: 2px;
+      transition: width 0.4s ease, background 0.4s ease;
+    }
+
+    .strength-label {
+      font-size: 0.75rem;
+      color: #9C8A7A;
+      margin-top: 4px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-loader" id="pageLoader">
+    <div><div class="loader-logo">Walela Link</div></div>
+    <div class="loader-bar"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <div class="auth-page">
+
+    <!-- LEFT: VISUAL PANEL -->
+    <div class="auth-visual">
+      <div class="auth-visual-bg"></div>
+      <div class="auth-visual-content">
+        <div class="auth-visual-logo">
+          <div class="auth-logo-mark"><span></span></div>
+          <div class="auth-logo-name">Walela Link</div>
+        </div>
+        <h2>Your one account for everything.</h2>
+        <p>Join hundreds of clients who trust Walela Link Services for logistics, travel, errands, events, and more across East Africa.</p>
+        <div class="auth-features">
+          <div class="auth-feature">
+            <div class="auth-feature-icon">🚀</div>
+            <div class="auth-feature-text">
+              <strong>Instant Access</strong>
+              <span>Book any service within minutes of signing up</span>
+            </div>
+          </div>
+          <div class="auth-feature">
+            <div class="auth-feature-icon">🎯</div>
+            <div class="auth-feature-text">
+              <strong>Personalised Dashboard</strong>
+              <span>Track orders, history, and preferences in one place</span>
+            </div>
+          </div>
+          <div class="auth-feature">
+            <div class="auth-feature-icon">💰</div>
+            <div class="auth-feature-text">
+              <strong>Exclusive Member Rates</strong>
+              <span>Registered users get priority pricing and discounts</span>
+            </div>
+          </div>
+          <div class="auth-feature">
+            <div class="auth-feature-icon">🛡️</div>
+            <div class="auth-feature-text">
+              <strong>Safe &amp; Secure</strong>
+              <span>Your data is encrypted and never shared without consent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM PANEL -->
+    <div class="auth-form-side">
+      <div class="auth-form-container">
+        <div class="auth-form-header">
+          <div style="display:none;" id="mobileLogo">
+            <a href="index.html" class="nav-logo" style="margin-bottom:28px;display:inline-flex;">
+              <div class="nav-logo-mark"><span></span></div>
+              <div class="nav-logo-text">Walela Link<small>Services</small></div>
+            </a>
+          </div>
+          <h1>Create Account</h1>
+          <p>Already have an account? <a href="login.html">Sign in here</a></p>
+        </div>
+
+        <form class="auth-form" id="signupForm" novalidate>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label for="signupFirst">First Name *</label>
+              <div class="input-wrap">
+                <span class="input-icon">👤</span>
+                <input type="text" id="signupFirst" name="firstName" placeholder="First" required autocomplete="given-name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signupLast">Last Name *</label>
+              <input type="text" id="signupLast" name="lastName" placeholder="Last" required autocomplete="family-name" style="font-family:var(--font-body);font-size:0.95rem;color:var(--earth-dark);background:var(--sand-light);border:1.5px solid rgba(196,98,45,0.15);border-radius:var(--radius-md);padding:12px 16px;width:100%;outline:none;transition:all 0.3s;" onfocus="this.style.borderColor='var(--terracotta)';this.style.boxShadow='0 0 0 3px rgba(196,98,45,0.12)';this.style.background='white'" onblur="this.style.borderColor='rgba(196,98,45,0.15)';this.style.boxShadow='none';this.style.background='var(--sand-light)'" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signupEmail">Email Address *</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="signupEmail" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signupPhone">Phone Number *</label>
+            <div class="input-wrap">
+              <span class="input-icon">📞</span>
+              <input type="tel" id="signupPhone" name="phone" placeholder="+254 700 000 000" required autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signupPassword">Password *</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="signupPassword" name="password" placeholder="Create a strong password" required autocomplete="new-password" oninput="updateStrength(this.value)" />
+            </div>
+            <div class="password-strength">
+              <div class="password-strength-bar" id="strengthBar"></div>
+            </div>
+            <div class="strength-label" id="strengthLabel">Enter a password</div>
+          </div>
+
+          <div class="form-group">
+            <label for="signupConfirm">Confirm Password *</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="signupConfirm" name="confirmPassword" placeholder="Repeat your password" required autocomplete="new-password" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="accountType">Account Type</label>
+            <select id="accountType" name="accountType" style="font-family:var(--font-body);font-size:0.95rem;color:var(--earth-dark);background:var(--sand-light);border:1.5px solid rgba(196,98,45,0.15);border-radius:var(--radius-md);padding:12px 16px;width:100%;outline:none;transition:all 0.3s;" onfocus="this.style.borderColor='var(--terracotta)';this.style.boxShadow='0 0 0 3px rgba(196,98,45,0.12)'" onblur="this.style.borderColor='rgba(196,98,45,0.15)';this.style.boxShadow='none'">
+              <option value="individual">👤 Individual / Personal</option>
+              <option value="business">🏢 Business / Company</option>
+              <option value="agency">🤝 Agency / Reseller</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-group">
+              <input type="checkbox" id="termsCheck" required />
+              I agree to the <a href="#" style="color:var(--terracotta);font-weight:600;">Terms of Service</a> and <a href="#" style="color:var(--terracotta);font-weight:600;">Privacy Policy</a>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-group">
+              <input type="checkbox" name="marketing" />
+              Send me updates about services, promotions, and tips (optional)
+            </label>
+          </div>
+
+          <button type="submit" class="form-submit" id="signupBtn">Create Account →</button>
+        </form>
+
+        <div class="divider"><span>or sign up with</span></div>
+
+        <div style="display:flex;gap:12px;margin-bottom:24px;">
+          <button onclick="showToast('Google sign-up coming soon!')" style="flex:1;padding:12px;border:1.5px solid rgba(196,98,45,0.2);border-radius:8px;background:var(--white);font-size:0.875rem;font-weight:600;color:var(--earth-dark);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--terracotta)'" onmouseout="this.style.borderColor='rgba(196,98,45,0.2)'">
+            🌐 Google
+          </button>
+          <button onclick="showToast('Apple sign-up coming soon!')" style="flex:1;padding:12px;border:1.5px solid rgba(196,98,45,0.2);border-radius:8px;background:var(--white);font-size:0.875rem;font-weight:600;color:var(--earth-dark);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--terracotta)'" onmouseout="this.style.borderColor='rgba(196,98,45,0.2)'">
+            🍎 Apple
+          </button>
+        </div>
+
+        <div class="auth-form-footer">
+          Already have an account? <a href="login.html">Sign in here</a>
+        </div>
+
+        <div style="margin-top:24px;text-align:center;">
+          <a href="index.html" style="font-size:0.82rem;color:#9C8A7A;display:inline-flex;align-items:center;gap:6px;transition:color 0.3s;" onmouseover="this.style.color='var(--terracotta)'" onmouseout="this.style.color='#9C8A7A'">
+            ← Back to Homepage
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Show mobile logo
+    function checkMobile() {
+      const logo = document.getElementById('mobileLogo');
+      if (window.innerWidth <= 1024) logo.style.display = 'block';
+      else logo.style.display = 'none';
+    }
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    // Password strength
+    function updateStrength(val) {
+      const bar = document.getElementById('strengthBar');
+      const label = document.getElementById('strengthLabel');
+      let score = 0;
+      if (val.length >= 8) score++;
+      if (/[A-Z]/.test(val)) score++;
+      if (/[0-9]/.test(val)) score++;
+      if (/[^A-Za-z0-9]/.test(val)) score++;
+
+      const levels = [
+        { width: '0%',   color: 'transparent', text: 'Enter a password' },
+        { width: '25%',  color: '#E53E3E',      text: 'Weak' },
+        { width: '50%',  color: '#DD6B20',      text: 'Fair' },
+        { width: '75%',  color: '#D4A843',      text: 'Good' },
+        { width: '100%', color: '#5C6B3A',      text: 'Strong ✓' }
+      ];
+
+      const level = val.length === 0 ? 0 : score;
+      bar.style.width = levels[level].width;
+      bar.style.background = levels[level].color;
+      label.textContent = levels[level].text;
+      label.style.color = levels[level].color === 'transparent' ? '#9C8A7A' : levels[level].color;
+    }
+
+    // Form submit
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('signupBtn');
+      const pass = document.getElementById('signupPassword').value;
+      const confirm = document.getElementById('signupConfirm').value;
+      const terms = document.getElementById('termsCheck').checked;
+
+      if (pass !== confirm) {
+        showToast('Passwords do not match. Please try again.');
+        return;
+      }
+      if (!terms) {
+        showToast('Please accept the Terms of Service to continue.');
+        return;
+      }
+
+      btn.textContent = 'Creating Account...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      setTimeout(() => {
+        btn.textContent = '✓ Account Created!';
+        btn.style.background = 'var(--olive)';
+        showToast('Account created successfully! Welcome to Walela Link. 🎉');
+        setTimeout(() => {
+          btn.textContent = 'Create Account →';
+          btn.disabled = false;
+          btn.style.opacity = '';
+          btn.style.background = '';
+        }, 3500);
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

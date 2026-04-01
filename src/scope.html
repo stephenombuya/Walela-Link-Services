@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about Walela Link Services — our mission, vision, values, and the team behind East Africa's premier multi-service platform." />
+  <title>About Us | Walela Link Services</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+  <style>
+    .mission-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .mission-text h2 {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--earth-dark);
+      margin-bottom: 20px;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+
+    .mission-text p {
+      color: #6B5B4E;
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .mission-visual {
+      background: var(--earth-dark);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent, transparent 30px,
+        rgba(196,98,45,0.06) 30px,
+        rgba(196,98,45,0.06) 31px
+      );
+    }
+
+    .mission-quote {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--sand-light);
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .mission-quote::before {
+      content: '"';
+      display: block;
+      font-size: 4rem;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .mission-attribution {
+      position: relative;
+      z-index: 1;
+      font-size: 0.85rem;
+      color: rgba(242,228,200,0.55);
+      font-style: italic;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid rgba(196,98,45,0.1);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      transition: box-shadow var(--transition);
+    }
+
+    .stat-card:hover { box-shadow: var(--shadow-card); }
+
+    .stat-card-num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card-label {
+      font-size: 0.85rem;
+      color: #6B5B4E;
+      line-height: 1.4;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border: 1px solid rgba(196,98,45,0.1);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-4px);
+    }
+
+    .team-card-avatar {
+      height: 180px;
+      background: var(--earth-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card-avatar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 20px,
+        rgba(196,98,45,0.08) 20px, rgba(196,98,45,0.08) 21px
+      );
+    }
+
+    .team-card-avatar span { position: relative; z-index: 1; }
+
+    .team-card-body { padding: 24px; }
+
+    .team-card-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--earth-dark);
+      margin-bottom: 4px;
+    }
+
+    .team-card-role {
+      font-size: 0.82rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .team-card-bio {
+      font-size: 0.875rem;
+      color: #6B5B4E;
+      line-height: 1.65;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 16px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--terracotta), var(--deep-amber), var(--olive));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -32px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--terracotta);
+    }
+
+    .timeline-year {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--earth-dark);
+      margin-bottom: 8px;
+    }
+
+    .timeline-text {
+      font-size: 0.9rem;
+      color: #6B5B4E;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .mission-layout { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-loader" id="pageLoader">
+    <div><div class="loader-logo">Walela Link</div></div>
+    <div class="loader-bar"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><span></span></div>
+      <div class="nav-logo-text">Walela Link<small>Services</small></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="scope.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="login.html" class="btn-nav-login">Sign In</a>
+      <a href="signup.html" class="btn-nav-signup">Get Started →</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="scope.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="login.html" class="m-login">Sign In</a>
+      <a href="signup.html" class="m-signup">Get Started</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span><span>About Us</span>
+      </div>
+      <h1>Our Story &amp; Scope</h1>
+      <p>Built in East Africa, for East Africa — Walela Link Services exists to make every kind of service accessible, reliable, and seamless.</p>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <div id="vision" class="section-full" style="background:var(--sand-light);">
+    <div class="section" style="padding-top:80px;padding-bottom:80px;">
+      <div class="mission-layout fade-up">
+        <div class="mission-text">
+          <span class="section-eyebrow">Our Mission</span>
+          <h2>Connecting People to<br>Services That Matter</h2>
+          <p>
+            Walela Link Services was founded on a simple but powerful belief: that every person and business in East Africa deserves access to reliable, professional services — without the frustration of dealing with fragmented, unreliable providers.
+          </p>
+          <p>
+            We built a platform that unifies logistics, lifestyle, travel, technology, and creativity into one trusted brand. When you come to Walela, you don't need to look anywhere else.
+          </p>
+          <p>
+            From the first-time entrepreneur shipping a container to the busy professional who needs an errand run, from the couple planning a dream safari to the event organiser who needs a full PA setup — Walela Link is the one call you make.
+          </p>
+          <a href="contact.html" class="btn-primary mt-24" style="display:inline-flex;">Get in Touch →</a>
+        </div>
+        <div class="mission-visual">
+          <div class="mission-quote">
+            We don't just provide services. We build trust, one delivery at a time.
+          </div>
+          <div class="mission-attribution">— Walela Link Services Founding Team</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row fade-up">
+        <div class="stat-card">
+          <div class="stat-card-num">7+</div>
+          <div class="stat-card-label">Service Categories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">500+</div>
+          <div class="stat-card-label">Satisfied Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">3</div>
+          <div class="stat-card-label">Counties Covered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">24/7</div>
+          <div class="stat-card-label">Customer Support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISION -->
+  <div class="section-full">
+    <div class="section">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">Looking Forward</span>
+        <h2 class="section-title">Our Vision</h2>
+        <p class="section-subtitle">Where we're headed and what drives every decision we make.</p>
+      </div>
+
+      <div class="vision-grid">
+        <div class="vision-card fade-up">
+          <div class="vision-card-icon">🌍</div>
+          <div class="vision-card-title">Pan-African Reach</div>
+          <p class="vision-card-text">We envision expanding our service network across all East African nations, becoming the region's most trusted multi-service logistics and lifestyle brand.</p>
+        </div>
+        <div class="vision-card fade-up">
+          <div class="vision-card-icon">🤖</div>
+          <div class="vision-card-title">Tech-Powered Operations</div>
+          <p class="vision-card-text">Investing in digital tools, real-time tracking, and AI-powered scheduling to deliver faster, smarter, and more transparent service experiences.</p>
+        </div>
+        <div class="vision-card fade-up">
+          <div class="vision-card-icon">🤝</div>
+          <div class="vision-card-title">Community Empowerment</div>
+          <p class="vision-card-text">Creating employment, training local service providers, and partnering with artisans and craftspeople to grow the local economy alongside our platform.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div id="values" class="values-band section-full">
+    <div class="section">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">What We Stand For</span>
+        <h2 class="section-title">Our Core Values</h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-item fade-up">
+          <div class="value-num">01</div>
+          <div>
+            <div class="value-title">Reliability Above All</div>
+            <p class="value-text">We do what we say we'll do, when we say we'll do it. Our clients depend on us and we take that responsibility seriously — every single time.</p>
+          </div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-num">02</div>
+          <div>
+            <div class="value-title">Client-First Thinking</div>
+            <p class="value-text">Every process, every policy, every decision starts with the question: how does this serve our clients better? We obsess over experience, not just outcomes.</p>
+          </div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-num">03</div>
+          <div>
+            <div class="value-title">Transparency &amp; Integrity</div>
+            <p class="value-text">Clear pricing, honest timelines, and upfront communication. We don't hide behind fine print — we build trust through radical honesty.</p>
+          </div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-num">04</div>
+          <div>
+            <div class="value-title">Continuous Improvement</div>
+            <p class="value-text">We're never satisfied with "good enough." We actively seek client feedback, invest in our team, and iterate our processes to keep getting better.</p>
+          </div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-num">05</div>
+          <div>
+            <div class="value-title">Pride in African Identity</div>
+            <p class="value-text">We celebrate and champion local talent, culture, and craftsmanship. Our work is rooted in who we are — and we wear that proudly.</p>
+          </div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-num">06</div>
+          <div>
+            <div class="value-title">Sustainability &amp; Responsibility</div>
+            <p class="value-text">We operate with awareness of our environmental and social impact, working toward greener logistics and community-positive business practices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOURNEY -->
+  <div class="section-full">
+    <div class="section">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">Our Journey</span>
+        <h2 class="section-title">How We Got Here</h2>
+      </div>
+
+      <div class="timeline fade-up">
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-title">Founded in Nairobi</div>
+          <p class="timeline-text">Walela Link Services launched as a small delivery and errand service, serving the CBD and Westlands corridors with a team of four riders.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-title">Cargo &amp; Logistics Division Launched</div>
+          <p class="timeline-text">Growing demand from import/export businesses led us to launch our full cargo container logistics arm, partnering with Mombasa port agents.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-title">Tourism &amp; Events Expansion</div>
+          <p class="timeline-text">We added tourism itinerary planning and entertainment equipment hire, serving clients in Nairobi, Kisumu, and Mombasa.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-title">ICT &amp; Fashion Verticals</div>
+          <p class="timeline-text">Responding to client requests, we launched ICT equipment sales and our fashion design studio — rounding out our seven service categories.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-title">Digital Platform Launch</div>
+          <p class="timeline-text">Walela Link Services launched its unified digital platform, enabling clients to book, track, and manage all services from a single interface.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2025 →</div>
+          <div class="timeline-title">Regional Expansion</div>
+          <p class="timeline-text">Now operating with 500+ satisfied clients, we are actively expanding into Uganda and Tanzania while deepening our presence across Kenya.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Ready to Work With Us?</h2>
+        <p>Whether you need a single delivery or full logistics management, we're here to help.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="services.html" class="btn-cta-white">View Our Services</a>
+        <a href="contact.html" class="btn-cta-outline">📩 Get in Touch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark"><span></span></div>
+          <div class="nav-logo-text" style="color:var(--sand-light);">Walela Link<small>Services</small></div>
+        </a>
+        <p class="footer-brand-desc">Your all-in-one multi-service logistics and lifestyle platform, proudly serving East Africa.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">📘</a>
+          <a href="#" class="social-btn">🐦</a>
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">💬</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="services.html#cargo">Cargo Logistics</a></li>
+        <li><a href="services.html#delivery">Delivery</a></li>
+        <li><a href="services.html#errands">Petty Errands</a></li>
+        <li><a href="services.html#tourism">Tourism Planning</a></li>
+        <li><a href="services.html#equipment">Equipment Hire</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="scope.html">About Us</a></li>
+        <li><a href="#vision">Our Vision</a></li>
+        <li><a href="#values">Our Values</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Account</h4><ul>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="signup.html">Register</a></li>
+        <li><a href="#">My Orders</a></li>
+        <li><a href="#">Support</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <script>document.write(new Date().getFullYear())</script> Walela Link Services. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

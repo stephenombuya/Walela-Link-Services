@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Walela Link Services — Your trusted multi-service logistics partner for cargo, delivery, errands, tourism planning, equipment hire, and more across East Africa." />
+  <title>Walela Link Services | Connecting You to Everything</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div>
+      <div class="loader-logo">Walela Link</div>
+    </div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ─── NAVIGATION ──────────────────────────────────────── -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><span></span></div>
+      <div class="nav-logo-text">
+        Walela Link
+        <small>Services</small>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="scope.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="login.html" class="btn-nav-login">Sign In</a>
+      <a href="signup.html" class="btn-nav-signup">Get Started →</a>
+    </div>
+
+    <div class="nav-hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="scope.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="login.html" class="m-login">Sign In</a>
+      <a href="signup.html" class="m-signup">Get Started</a>
+    </div>
+  </div>
+
+  <!-- ─── HERO ────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="hero-inner">
+      <!-- Text -->
+      <div class="hero-content">
+        <div class="hero-eyebrow">East Africa's All-In-One Platform</div>
+        <h1 class="hero-heading">
+          Move, Plan &amp;<br>
+          <em>Connect</em> with<br>
+          Ease
+        </h1>
+        <p class="hero-subtext">
+          From cargo logistics to tourism itineraries, petty errands to equipment hire — Walela Link Services brings every service you need under one roof.
+        </p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn-primary">Explore Services →</a>
+          <a href="contact.html" class="btn-secondary">📞 Talk to Us</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">7+</div>
+            <div class="hero-stat-label">Service Types</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">500+</div>
+            <div class="hero-stat-label">Happy Clients</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">24/7</div>
+            <div class="hero-stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Card Stack -->
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hero-card-back2"></div>
+          <div class="hero-card-back1"></div>
+          <div class="hero-card hero-card-main">
+            <div class="hero-card-icon">🚚</div>
+            <div class="hero-card-title">Cargo & Delivery</div>
+            <div class="hero-card-desc">
+              Reliable container logistics and last-mile delivery across the region. Your goods, delivered safely and on time.
+            </div>
+            <div class="hero-card-tags">
+              <span class="hero-card-tag">Container Logistics</span>
+              <span class="hero-card-tag">Last-Mile</span>
+              <span class="hero-card-tag">Express Delivery</span>
+            </div>
+          </div>
+
+          <div class="hero-badge hero-badge-1">
+            <div class="hero-badge-icon">✅</div>
+            <div>
+              <div class="hero-badge-text">Order Delivered</div>
+              <div class="hero-badge-sub">Just now · Nairobi CBD</div>
+            </div>
+          </div>
+
+          <div class="hero-badge hero-badge-2">
+            <div class="hero-badge-icon">⭐</div>
+            <div>
+              <div class="hero-badge-text">4.9 / 5 Rating</div>
+              <div class="hero-badge-sub">Based on 320 reviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES OVERVIEW ────────────────────────────────── -->
+  <section class="services-band section-full">
+    <div class="section" style="padding-top:0; padding-bottom:0;">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">What We Do</span>
+        <h2 class="section-title">Everything You Need,<br>All in One Place</h2>
+        <p class="section-subtitle">Seven distinct service categories designed to cover every logistical, lifestyle, and business need you have.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <span class="service-card-emoji">🏗️</span>
+          <div class="service-card-title">Cargo Container Logistics</div>
+          <p class="service-card-desc">Full container management, documentation, port handling, and inland transportation for businesses of all sizes.</p>
+          <a href="services.html#cargo" class="service-card-link">Learn More →</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <span class="service-card-emoji">🛵</span>
+          <div class="service-card-title">Delivery Services</div>
+          <p class="service-card-desc">Fast, reliable last-mile delivery for parcels, documents, and packages across the city and beyond.</p>
+          <a href="services.html#delivery" class="service-card-link">Learn More →</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <span class="service-card-emoji">🧹</span>
+          <div class="service-card-title">Petty Errands</div>
+          <p class="service-card-desc">Let us handle the small stuff — bill payments, queue management, shopping, and everyday tasks so you can focus on what matters.</p>
+          <a href="services.html#errands" class="service-card-link">Learn More →</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <span class="service-card-emoji">🗺️</span>
+          <div class="service-card-title">Tourism Itinerary Planning</div>
+          <p class="service-card-desc">Custom travel itineraries, accommodation booking, guided tours, and full vacation management across East Africa.</p>
+          <a href="services.html#tourism" class="service-card-link">Learn More →</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <span class="service-card-emoji">🎶</span>
+          <div class="service-card-title">Entertainment Equipment Hire</div>
+          <p class="service-card-desc">Tents, PA systems, lighting rigs, and AV gear for events of any size — delivered, set up, and collected.</p>
+          <a href="services.html#equipment" class="service-card-link">Learn More →</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <span class="service-card-emoji">💻</span>
+          <div class="service-card-title">ICT Equipment Sales</div>
+          <p class="service-card-desc">Laptops, printers, networking gear, and peripherals — quality hardware sourced and delivered for business and personal use.</p>
+          <a href="services.html#ict" class="service-card-link">Learn More →</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <span class="service-card-emoji">👗</span>
+          <div class="service-card-title">Fashion Design & Accessories</div>
+          <p class="service-card-desc">Custom fashion design, tailoring, and curated accessories that celebrate African craftsmanship and contemporary style.</p>
+          <a href="services.html#fashion" class="service-card-link">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-40">
+        <a href="services.html" class="btn-primary">View All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─────────────────────────────────────── -->
+  <section class="how-it-works section-full">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="section-header fade-up" style="color:var(--sand-light);">
+        <span class="section-eyebrow" style="color:var(--deep-amber);">Simple Process</span>
+        <h2 class="section-title" style="color:var(--sand-light);">How It Works</h2>
+        <p class="section-subtitle" style="color:rgba(242,228,200,0.6);">Four simple steps to get exactly what you need.</p>
+      </div>
+
+      <div class="steps-grid fade-up">
+        <div class="step-item">
+          <div class="step-number">01</div>
+          <div class="step-icon">🔍</div>
+          <div class="step-title">Choose Your Service</div>
+          <p class="step-desc">Browse our seven service categories and select the one that matches your need.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">02</div>
+          <div class="step-icon">📋</div>
+          <div class="step-title">Submit Your Request</div>
+          <p class="step-desc">Fill out a quick request form with your details, timeline, and any special requirements.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">03</div>
+          <div class="step-icon">🤝</div>
+          <div class="step-title">Get a Confirmation</div>
+          <p class="step-desc">Our team reviews your request and sends a confirmation with pricing and schedule.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">04</div>
+          <div class="step-icon">🎉</div>
+          <div class="step-title">Sit Back & Relax</div>
+          <p class="step-desc">We handle everything. Track progress in real time and get notified when it's done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─────────────────────────────────────── -->
+  <section class="testimonials-band section-full">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">Client Stories</span>
+        <h2 class="section-title">What People Say</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-quote">&ldquo;</div>
+          <p class="testimonial-text">Walela handled our entire company relocation — from shipping containers to the office setup. Absolutely flawless coordination and communication throughout.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <div class="testimonial-name">Amina Mwangi</div>
+              <div class="testimonial-role">Operations Director, TechHub Nairobi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-quote">&ldquo;</div>
+          <p class="testimonial-text">I used their tourism planning service for a family trip to Maasai Mara. Everything was perfectly organised — accommodation, transfers, guides. Best holiday ever.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JO</div>
+            <div>
+              <div class="testimonial-name">James Odhiambo</div>
+              <div class="testimonial-role">Entrepreneur, Kisumu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-quote">&ldquo;</div>
+          <p class="testimonial-text">Their petty errands service saved my week. From renewing my insurance to picking up school supplies, they handled everything professionally and on time.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">FW</div>
+            <div>
+              <div class="testimonial-name">Faith Wanjiku</div>
+              <div class="testimonial-role">Busy Professional, Nairobi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ──────────────────────────────────────────────── -->
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Ready to Get Started?</h2>
+        <p>Join hundreds of satisfied clients who trust Walela Link Services for their logistics, travel, and lifestyle needs.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="signup.html" class="btn-cta-white">Create Free Account</a>
+        <a href="contact.html" class="btn-cta-outline">📩 Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="nav-logo" style="text-decoration:none;">
+          <div class="nav-logo-mark"><span></span></div>
+          <div class="nav-logo-text" style="color:var(--sand-light);">
+            Walela Link
+            <small>Services</small>
+          </div>
+        </a>
+        <p class="footer-brand-desc">
+          Your all-in-one multi-service logistics and lifestyle platform, proudly serving East Africa with reliability, speed, and care.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#cargo">Cargo Logistics</a></li>
+          <li><a href="services.html#delivery">Delivery</a></li>
+          <li><a href="services.html#errands">Petty Errands</a></li>
+          <li><a href="services.html#tourism">Tourism Planning</a></li>
+          <li><a href="services.html#equipment">Equipment Hire</a></li>
+          <li><a href="services.html#ict">ICT Sales</a></li>
+          <li><a href="services.html#fashion">Fashion Design</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="scope.html">About Us</a></li>
+          <li><a href="scope.html#vision">Our Vision</a></li>
+          <li><a href="scope.html#values">Our Values</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="signup.html">Register</a></li>
+          <li><a href="#">My Orders</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p><script>document.write(new Date().getFullYear())</script> Walela Link Services. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

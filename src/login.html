@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Walela Link Services — get in touch for quotes, inquiries, and support across our seven service categories." />
+  <title>Contact Us | Walela Link Services</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+</head>
+<body>
+
+  <div class="page-loader" id="pageLoader">
+    <div><div class="loader-logo">Walela Link</div></div>
+    <div class="loader-bar"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><span></span></div>
+      <div class="nav-logo-text">Walela Link<small>Services</small></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="scope.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="login.html" class="btn-nav-login">Sign In</a>
+      <a href="signup.html" class="btn-nav-signup">Get Started →</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="scope.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="login.html" class="m-login">Sign In</a>
+      <a href="signup.html" class="m-signup">Get Started</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span><span>Contact</span>
+      </div>
+      <h1>Get in Touch</h1>
+      <p>Have a question, need a quote, or want to discuss your project? We're ready to help — reach out and we'll respond within 24 hours.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT MAIN -->
+  <div class="section-full" style="background:var(--sand-light);">
+    <div class="section">
+      <div class="contact-layout fade-up">
+
+        <!-- Left: Info -->
+        <div>
+          <div class="contact-info">
+            <h2>Let's Start a Conversation</h2>
+            <p>
+              Whether you're a first-time client or a long-standing partner, our team is always glad to hear from you. Tell us what you need and we'll figure out the best way to help.
+            </p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon-wrap">📍</div>
+              <div>
+                <div class="contact-item-label">Address</div>
+                <div class="contact-item-value">Nairobi Business Park, Ngong Road<br>Nairobi, Kenya</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon-wrap">📞</div>
+              <div>
+                <div class="contact-item-label">Phone</div>
+                <div class="contact-item-value">+254 700 000 000</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon-wrap">✉️</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value">info@walelalink.co.ke</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon-wrap">⏰</div>
+              <div>
+                <div class="contact-item-label">Business Hours</div>
+                <div class="contact-item-value">Mon – Fri: 8:00 AM – 6:00 PM<br>Sat: 9:00 AM – 2:00 PM</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon-wrap">💬</div>
+              <div>
+                <div class="contact-item-label">WhatsApp</div>
+                <div class="contact-item-value">+254 700 000 000<br><span style="font-size:0.8rem;color:#9C8A7A;">Available 24/7 for urgent queries</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div style="margin-top:40px;">
+            <p style="font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px;">Quick Inquiries</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Cargo Container Logistics'); return false;">🏗️ Cargo Quote</a>
+              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Delivery Services'); return false;">🛵 Book Delivery</a>
+              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Tourism Planning'); return false;">🗺️ Plan a Trip</a>
+              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Equipment Hire'); return false;">🎶 Hire Equipment</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form-wrap">
+          <div class="form-title">Send Us a Message</div>
+
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000" />
+              </div>
+              <div class="form-group full">
+                <label for="service">Service of Interest *</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a service...</option>
+                  <option value="Cargo Container Logistics">🏗️ Cargo Container Logistics</option>
+                  <option value="Delivery Services">🛵 Delivery Services</option>
+                  <option value="Petty Errands">🧹 Petty Errands</option>
+                  <option value="Tourism Planning">🗺️ Tourism Itinerary Planning</option>
+                  <option value="Equipment Hire">🎶 Entertainment Equipment Hire</option>
+                  <option value="ICT Equipment Sales">💻 ICT Equipment Sales</option>
+                  <option value="Fashion Design">👗 Fashion Design & Accessories</option>
+                  <option value="General Inquiry">❓ General Inquiry</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" placeholder="How can we help you?" required />
+              </div>
+              <div class="form-group full">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" placeholder="Tell us more about your needs, timeline, and any specific requirements..." required></textarea>
+              </div>
+              <div class="form-group full">
+                <label style="display:flex;align-items:flex-start;gap:10px;font-size:0.875rem;font-weight:normal;color:#6B5B4E;cursor:pointer;">
+                  <input type="checkbox" id="consent" name="consent" required style="margin-top:2px;width:16px;height:16px;accent-color:var(--terracotta);flex-shrink:0;" />
+                  I consent to Walela Link Services storing my details to respond to this inquiry. Read our <a href="#" style="color:var(--terracotta);font-weight:600;">Privacy Policy</a>.
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn">
+              Send Message →
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">FAQs</span>
+      <h2 class="section-title">Common Questions</h2>
+    </div>
+
+    <div style="max-width:760px;margin:0 auto;" class="fade-up">
+      <div id="faqList"></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Ready to Get Started?</h2>
+        <p>Create a free account and access all our services in one place.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="signup.html" class="btn-cta-white">Create Free Account</a>
+        <a href="services.html" class="btn-cta-outline">Browse Services →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark"><span></span></div>
+          <div class="nav-logo-text" style="color:var(--sand-light);">Walela Link<small>Services</small></div>
+        </a>
+        <p class="footer-brand-desc">Your all-in-one multi-service logistics and lifestyle platform, proudly serving East Africa.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">📘</a>
+          <a href="#" class="social-btn">🐦</a>
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">💬</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="services.html#cargo">Cargo Logistics</a></li>
+        <li><a href="services.html#delivery">Delivery</a></li>
+        <li><a href="services.html#errands">Petty Errands</a></li>
+        <li><a href="services.html#tourism">Tourism Planning</a></li>
+        <li><a href="services.html#equipment">Equipment Hire</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="scope.html">About Us</a></li>
+        <li><a href="scope.html#vision">Our Vision</a></li>
+        <li><a href="scope.html#values">Our Values</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Account</h4><ul>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="signup.html">Register</a></li>
+        <li><a href="#">My Orders</a></li>
+        <li><a href="#">Support</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <script>document.write(new Date().getFullYear())</script> Walela Link Services. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Prefill service dropdown
+    function prefillService(value) {
+      const sel = document.getElementById('service');
+      if (sel) {
+        for (let i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === value) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+        document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    // Contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      setTimeout(() => {
+        btn.textContent = '✓ Message Sent!';
+        btn.style.background = 'var(--olive)';
+        showToast('Thank you! We\'ll get back to you within 24 hours. 🙌');
+        setTimeout(() => {
+          this.reset();
+          btn.textContent = 'Send Message →';
+          btn.disabled = false;
+          btn.style.opacity = '';
+          btn.style.background = '';
+        }, 3500);
+      }, 1400);
+    });
+
+    // FAQ data
+    const faqs = [
+      {
+        q: 'How quickly do you respond to inquiries?',
+        a: 'We aim to respond to all messages within 2–4 business hours. For urgent matters, we recommend reaching out via WhatsApp for the fastest response.'
+      },
+      {
+        q: 'Do you provide services outside Nairobi?',
+        a: 'Yes! We currently serve Nairobi, Mombasa, and Kisumu. We also handle cargo logistics nationally and coordinate with partners for regional East African coverage.'
+      },
+      {
+        q: 'How are your prices structured?',
+        a: 'Pricing varies by service type, volume, distance, and complexity. We provide transparent, itemised quotes before you commit to anything. No hidden fees.'
+      },
+      {
+        q: 'Can I track my delivery or order in real time?',
+        a: 'Yes. Once your order is confirmed, you\'ll receive a tracking link via SMS and email so you can monitor progress in real time.'
+      },
+      {
+        q: 'How do I pay for services?',
+        a: 'We accept M-Pesa, bank transfers, and cash. For business accounts, we offer invoicing with net payment terms upon approval.'
+      }
+    ];
+
+    const faqList = document.getElementById('faqList');
+    faqs.forEach((faq, i) => {
+      const item = document.createElement('div');
+      item.style.cssText = 'border:1px solid rgba(196,98,45,0.12);border-radius:12px;margin-bottom:12px;overflow:hidden;';
+      item.innerHTML = `
+        <button onclick="toggleFaq(${i})" style="width:100%;text-align:left;padding:20px 24px;background:var(--white);display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:600;font-size:0.95rem;color:var(--earth-dark);cursor:pointer;border:none;font-family:var(--font-body);transition:background 0.2s;" id="faq-btn-${i}">
+          ${faq.q}
+          <span id="faq-icon-${i}" style="font-size:1.2rem;flex-shrink:0;color:var(--terracotta);transition:transform 0.3s;">+</span>
+        </button>
+        <div id="faq-body-${i}" style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1);">
+          <div style="padding:0 24px 20px;font-size:0.9rem;color:#6B5B4E;line-height:1.75;">${faq.a}</div>
+        </div>
+      `;
+      faqList.appendChild(item);
+    });
+
+    function toggleFaq(i) {
+      const body = document.getElementById(`faq-body-${i}`);
+      const icon = document.getElementById(`faq-icon-${i}`);
+      const isOpen = body.style.maxHeight !== '0px' && body.style.maxHeight !== '';
+      // close all
+      faqs.forEach((_, j) => {
+        document.getElementById(`faq-body-${j}`).style.maxHeight = '0';
+        document.getElementById(`faq-icon-${j}`).textContent = '+';
+        document.getElementById(`faq-icon-${j}`).style.transform = 'rotate(0deg)';
+      });
+      if (!isOpen) {
+        body.style.maxHeight = body.scrollHeight + 200 + 'px';
+        icon.textContent = '−';
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+  </script>
+</body>
+</html>

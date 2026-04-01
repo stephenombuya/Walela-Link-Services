@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Walela Link Services — cargo logistics, delivery, errands, tourism planning, equipment hire, ICT sales, and fashion design." />
+  <title>Our Services | Walela Link Services</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+  <style>
+    /* Services-specific styles */
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(196,98,45,0.1);
+    }
+
+    .service-detail:last-child { border-bottom: none; }
+
+    .service-detail.reverse .service-detail-visual { order: -1; }
+
+    .service-detail-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: rgba(196,98,45,0.1);
+      border: 1px solid rgba(196,98,45,0.2);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+    }
+
+    .service-detail-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--earth-dark);
+      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+
+    .service-detail-text {
+      color: #6B5B4E;
+      line-height: 1.75;
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .service-feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .service-feature-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--earth-dark);
+    }
+
+    .service-feature-item::before {
+      content: '✓';
+      color: var(--terracotta);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .service-detail-visual {
+      background: var(--sand-light);
+      border: 1px solid rgba(196,98,45,0.12);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+      font-size: 7rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-detail-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%,
+        rgba(196,98,45,0.12) 0%,
+        transparent 65%
+      );
+    }
+
+    .service-visual-emoji {
+      position: relative;
+      z-index: 1;
+      transition: transform var(--transition-slow);
+    }
+
+    .service-detail-visual:hover .service-visual-emoji {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    /* Filter tabs */
+    .service-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .filter-btn {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #6B5B4E;
+      background: var(--white);
+      border: 1.5px solid rgba(196,98,45,0.15);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--terracotta);
+      color: var(--white);
+      border-color: var(--terracotta);
+    }
+
+    @media (max-width: 768px) {
+      .service-detail { grid-template-columns: 1fr; gap: 32px; }
+      .service-detail.reverse .service-detail-visual { order: 0; }
+      .service-detail-visual { min-height: 200px; font-size: 5rem; }
+      .service-detail-title { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-loader" id="pageLoader">
+    <div><div class="loader-logo">Walela Link</div></div>
+    <div class="loader-bar"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><span></span></div>
+      <div class="nav-logo-text">Walela Link<small>Services</small></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="scope.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="login.html" class="btn-nav-login">Sign In</a>
+      <a href="signup.html" class="btn-nav-signup">Get Started →</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="scope.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="login.html" class="m-login">Sign In</a>
+      <a href="signup.html" class="m-signup">Get Started</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Services</span>
+      </div>
+      <h1>Our Services</h1>
+      <p>Seven comprehensive service categories crafted to meet every personal, business, and lifestyle need you have.</p>
+    </div>
+  </div>
+
+  <!-- FILTER TABS -->
+  <div class="section-full" style="padding:40px 5% 0; background:var(--sand-light);">
+    <div class="service-filters">
+      <button class="filter-btn active" data-filter="all">All Services</button>
+      <button class="filter-btn" data-filter="logistics">Logistics</button>
+      <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+      <button class="filter-btn" data-filter="tech">Tech</button>
+      <button class="filter-btn" data-filter="travel">Travel</button>
+    </div>
+  </div>
+
+  <!-- SERVICE DETAILS -->
+  <div class="section-full" style="background:var(--sand-light);">
+    <div class="section" style="padding-top:20px;padding-bottom:60px;">
+
+      <!-- Cargo -->
+      <div id="cargo" class="service-detail fade-up">
+        <div class="service-detail-content">
+          <span class="service-detail-tag">Logistics</span>
+          <h2 class="service-detail-title">Cargo Container Logistics</h2>
+          <p class="service-detail-text">
+            We manage the full container lifecycle — from import/export documentation and port clearance to inland transportation and warehousing. Our experienced logistics team ensures your cargo moves efficiently, compliantly, and on schedule.
+          </p>
+          <ul class="service-feature-list">
+            <li class="service-feature-item">Full & Less-than-Container Load (FCL / LCL)</li>
+            <li class="service-feature-item">Customs clearance and documentation support</li>
+            <li class="service-feature-item">Port to warehouse / door delivery</li>
+            <li class="service-feature-item">Real-time shipment tracking</li>
+            <li class="service-feature-item">Bonded warehousing options</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Request a Quote →</a>
+        </div>
+        <div class="service-detail-visual">
+          <span class="service-visual-emoji">🏗️</span>
+        </div>
+      </div>
+
+      <!-- Delivery -->
+      <div id="delivery" class="service-detail reverse fade-up">
+        <div class="service-detail-content">
+          <span class="service-detail-tag">Logistics</span>
+          <h2 class="service-detail-title">Delivery Services</h2>
+          <p class="service-detail-text">
+            From same-day parcel delivery to scheduled courier runs, our fleet of riders and drivers ensures your packages reach their destination safely and on time — across the city and beyond.
+          </p>
+          <ul class="service-feature-list">
+            <li class="service-feature-item">Same-day & next-day delivery options</li>
+            <li class="service-feature-item">Document, parcel, and bulk item handling</li>
+            <li class="service-feature-item">Proof of delivery and real-time tracking</li>
+            <li class="service-feature-item">Scheduled recurring deliveries for businesses</li>
+            <li class="service-feature-item">Fragile and sensitive item handling</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Book a Delivery →</a>
+        </div>
+        <div class="service-detail-visual">
+          <span class="service-visual-emoji">🛵</span>
+        </div>
+      </div>
+
+      <!-- Errands -->
+      <div id="errands" class="service-detail fade-up">
+        <div class="service-detail-content">
+          <span class="service-detail-tag">Lifestyle</span>
+          <h2 class="service-detail-title">Petty Errands</h2>
+          <p class="service-detail-text">
+            Time is your most valuable asset. Our errand service handles all the mundane tasks that eat into your day — so you can focus on work, family, or anything else that matters more.
+          </p>
+          <ul class="service-feature-list">
+            <li class="service-feature-item">Bill payments, government offices, and banking</li>
+            <li class="service-feature-item">Grocery and pharmacy shopping</li>
+            <li class="service-feature-item">Queue standing and appointment attendance</li>
+            <li class="service-feature-item">Document printing, scanning, and notarisation</li>
+            <li class="service-feature-item">Car servicing and inspection drop-offs</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Delegate an Errand →</a>
+        </div>
+        <div class="service-detail-visual">
+          <span class="service-visual-emoji">🧹</span>
+        </div>
+      </div>
+
+      <!-- Tourism -->
+      <div id="tourism" class="service-detail reverse fade-up">
+        <div class="service-detail-content">
+          <span class="service-detail-tag">Travel</span>
+          <h2 class="service-detail-title">Tourism Itinerary Planning</h2>
+          <p class="service-detail-text">
+            East Africa is extraordinary — and we make it effortless to explore. Our travel experts craft bespoke itineraries that balance adventure, culture, comfort, and value for every type of traveller.
+          </p>
+          <ul class="service-feature-list">
+            <li class="service-feature-item">Custom safari and cultural itineraries</li>
+            <li class="service-feature-item">Accommodation booking across all price points</li>
+            <li class="service-feature-item">Airport transfers and ground transportation</li>
+            <li class="service-feature-item">Licensed tour guides and park entry fees</li>
+            <li class="service-feature-item">Group travel and corporate retreats</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Plan My Trip →</a>
+        </div>
+        <div class="service-detail-visual">
+          <span class="service-visual-emoji">🗺️</span>
+        </div>
+      </div>
+
+      <!-- Equipment Hire -->
+      <div id="equipment" class="service-detail fade-up">
+        <div class="service-detail-content">
+          <span class="service-detail-tag">Events</span>
+          <h2 class="service-detail-title">Entertainment Equipment Hire</h2>
+          <p class="service-detail-text">
+            Professional event infrastructure at competitive rates. Whether you're hosting a corporate conference, a wedding, or a community gathering, our inventory and setup team have you covered.
+          </p>
+          <ul class="service-feature-list">
+            <li class="service-feature-item">PA systems, amplifiers, and microphones</li>
+            <li class="service-feature-item">Tents, marquees, and seating</li>
+            <li class="service-feature-item">Stage lighting and LED display screens</li>
+            <li class="service-feature-item">DJ decks, projectors, and AV equipment</li>
+            <li class="service-feature-item">Setup, operation, and breakdown crew</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Get a Hire Quote →</a>
+        </div>
+        <div class="service-detail-visual">
+          <span class="service-visual-emoji">🎶</span>
+        </div>
+      </div>
+
+      <!-- ICT -->
+      <div id="ict" class="service-detail reverse fade-up">
+        <div class="service-detail-content">
+          <span class="service-detail-tag">Tech</span>
+          <h2 class="service-detail-title">ICT Equipment Sales</h2>
+          <p class="service-detail-text">
+            Reliable, quality ICT hardware sourced directly from reputable suppliers. We cater to individuals upgrading their home office, startups equipping teams, and enterprises scaling infrastructure.
+          </p>
+          <ul class="service-feature-list">
+            <li class="service-feature-item">Laptops, desktops, and workstations</li>
+            <li class="service-feature-item">Printers, scanners, and copiers</li>
+            <li class="service-feature-item">Networking equipment and accessories</li>
+            <li class="service-feature-item">Software licensing and setup assistance</li>
+            <li class="service-feature-item">After-sales support and warranty management</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Browse Equipment →</a>
+        </div>
+        <div class="service-detail-visual">
+          <span class="service-visual-emoji">💻</span>
+        </div>
+      </div>
+
+      <!-- Fashion -->
+      <div id="fashion" class="service-detail fade-up">
+        <div class="service-detail-content">
+          <span class="service-detail-tag">Lifestyle</span>
+          <h2 class="service-detail-title">Fashion Design &amp; Accessories</h2>
+          <p class="service-detail-text">
+            Celebrating African artistry through contemporary fashion. Our designers create bespoke clothing, uniforms, and accessories — blending vibrant heritage aesthetics with modern silhouettes and quality craftsmanship.
+          </p>
+          <ul class="service-feature-list">
+            <li class="service-feature-item">Custom-tailored clothing for individuals</li>
+            <li class="service-feature-item">Corporate and school uniform design</li>
+            <li class="service-feature-item">African print and contemporary fusion pieces</li>
+            <li class="service-feature-item">Handcrafted bags, jewellery, and accessories</li>
+            <li class="service-feature-item">Bridal and event fashion design</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Design My Outfit →</a>
+        </div>
+        <div class="service-detail-visual">
+          <span class="service-visual-emoji">👗</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Not Sure Which Service You Need?</h2>
+        <p>Our team is happy to assess your needs and recommend the right solution for you.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-cta-white">Talk to an Expert</a>
+        <a href="signup.html" class="btn-cta-outline">Create Account →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark"><span></span></div>
+          <div class="nav-logo-text" style="color:var(--sand-light);">Walela Link<small>Services</small></div>
+        </a>
+        <p class="footer-brand-desc">Your all-in-one multi-service logistics and lifestyle platform, proudly serving East Africa.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">📘</a>
+          <a href="#" class="social-btn">🐦</a>
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">💬</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="#cargo">Cargo Logistics</a></li>
+        <li><a href="#delivery">Delivery</a></li>
+        <li><a href="#errands">Petty Errands</a></li>
+        <li><a href="#tourism">Tourism Planning</a></li>
+        <li><a href="#equipment">Equipment Hire</a></li>
+        <li><a href="#ict">ICT Sales</a></li>
+        <li><a href="#fashion">Fashion Design</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="scope.html">About Us</a></li>
+        <li><a href="scope.html#vision">Our Vision</a></li>
+        <li><a href="scope.html#values">Our Values</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Account</h4><ul>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="signup.html">Register</a></li>
+        <li><a href="#">My Orders</a></li>
+        <li><a href="#">Support</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <script>document.write(new Date().getFullYear())</script> Walela Link Services. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.service-detail').forEach(card => {
+          const tag = card.querySelector('.service-detail-tag')?.textContent.toLowerCase() || '';
+          if (filter === 'all' || tag.includes(filter)) {
+            card.style.display = 'grid';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
