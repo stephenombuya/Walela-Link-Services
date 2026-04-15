@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Walela Link Services Privacy Policy — how we collect, use, and protect your personal data." />
+  <title>Privacy Policy | Walela Link Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terracotta: #C4622D; --terracotta-dark: #A3501E; --terracotta-light: #E8886A;
+      --sand: #F5EDE3; --sand-dark: #EAD9C8; --earth: #4A3728; --earth-mid: #6B5B4E;
+      --earth-light: #9C8A7A; --white: #FFFFFF; --olive: #6B7C4E;
+      --font-display: 'Playfair Display', Georgia, serif; --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--earth); line-height: 1.7; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand-dark);
+      padding: 0 40px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-mark { width: 32px; height: 32px; background: var(--terracotta); border-radius: 6px; position: relative; flex-shrink: 0; }
+    .logo-mark::after { content: ''; position: absolute; inset: 6px; background: rgba(255,255,255,0.3); border-radius: 2px; }
+    .logo-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--earth); line-height: 1.1; }
+    .logo-text small { display: block; font-family: var(--font-body); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth-light); }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--earth-mid); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); background: var(--sand); }
+
+    .doc-hero {
+      background: linear-gradient(135deg, #2E1F14 0%, var(--earth) 100%);
+      padding: 80px 40px 64px; text-align: center; position: relative; overflow: hidden;
+    }
+    .doc-hero::before {
+      content: ''; position: absolute; bottom: -60px; right: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.2) 0%, transparent 70%); pointer-events: none;
+    }
+    .doc-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .doc-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,98,45,0.2); border: 1px solid rgba(196,98,45,0.3); color: var(--terracotta-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
+    .doc-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--sand); margin-bottom: 14px; }
+    .doc-hero p { font-size: 0.92rem; color: var(--earth-light); max-width: 520px; margin: 0 auto 24px; }
+    .doc-meta { display: flex; justify-content: center; gap: 24px; font-size: 0.78rem; color: var(--earth-light); flex-wrap: wrap; }
+
+    /* Rights chips */
+    .rights-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+    .right-chip { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--sand); font-size: 0.78rem; font-weight: 500; padding: 7px 14px; border-radius: 999px; }
+
+    .doc-layout { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 240px 1fr; gap: 48px; padding: 60px 40px; }
+
+    .toc { position: sticky; top: 84px; align-self: start; }
+    .toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth-light); margin-bottom: 14px; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 4px; }
+    .toc-list a { display: block; font-size: 0.82rem; color: var(--earth-mid); text-decoration: none; padding: 6px 10px; border-radius: 6px; border-left: 2px solid transparent; transition: all 0.2s; }
+    .toc-list a:hover, .toc-list a.active { color: var(--terracotta); border-left-color: var(--terracotta); background: rgba(196,98,45,0.06); }
+    .toc-divider { height: 1px; background: var(--sand-dark); margin: 12px 0; }
+    .toc-policy-links a { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--earth-light); text-decoration: none; padding: 5px 10px; border-radius: 6px; transition: color 0.2s; }
+    .toc-policy-links a:hover { color: var(--terracotta); }
+
+    .doc-content { min-width: 0; }
+    .doc-section { margin-bottom: 52px; scroll-margin-top: 90px; }
+    .doc-section h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--earth); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1.5px solid var(--sand-dark); display: flex; align-items: center; gap: 12px; }
+    .doc-section h2 .sec-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; background: var(--terracotta); color: white; font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .doc-section h3 { font-size: 1rem; font-weight: 600; color: var(--earth); margin: 20px 0 8px; }
+    .doc-section p { font-size: 0.9rem; color: var(--earth-mid); margin-bottom: 14px; line-height: 1.8; }
+    .doc-section ul, .doc-section ol { padding-left: 20px; margin-bottom: 14px; }
+    .doc-section li { font-size: 0.9rem; color: var(--earth-mid); margin-bottom: 6px; line-height: 1.7; }
+
+    .info-box { padding: 16px 20px; border-radius: 10px; margin: 20px 0; font-size: 0.87rem; line-height: 1.7; }
+    .info-box.note { background: rgba(196,98,45,0.07); border-left: 3px solid var(--terracotta); color: var(--earth-mid); }
+    .info-box.tip { background: rgba(107,124,78,0.08); border-left: 3px solid var(--olive); color: var(--earth-mid); }
+    .info-box strong { color: var(--earth); }
+
+    /* Data table */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 20px 0; }
+    .data-table th { background: var(--earth); color: var(--sand); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.05em; }
+    .data-table th:first-child { border-radius: 8px 0 0 0; }
+    .data-table th:last-child { border-radius: 0 8px 0 0; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--sand-dark); color: var(--earth-mid); vertical-align: top; line-height: 1.6; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: var(--sand); }
+
+    /* Rights grid */
+    .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+    .right-card { background: var(--sand); border-radius: 10px; padding: 16px; }
+    .right-card-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .right-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--earth); margin-bottom: 4px; }
+    .right-card p { font-size: 0.8rem; color: var(--earth-mid); margin: 0; line-height: 1.6; }
+
+    .contact-card { background: var(--sand); border-radius: 14px; padding: 24px 28px; margin-top: 40px; display: flex; align-items: center; gap: 20px; }
+    .contact-card-icon { font-size: 2rem; flex-shrink: 0; }
+    .contact-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--earth); margin-bottom: 4px; }
+    .contact-card p { font-size: 0.84rem; color: var(--earth-mid); margin: 0 0 12px; }
+    .contact-card a { color: var(--terracotta); font-weight: 600; text-decoration: none; font-size: 0.84rem; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    .doc-footer { background: var(--earth); padding: 48px 40px; text-align: center; }
+    .doc-footer p { font-size: 0.82rem; color: var(--earth-light); margin-bottom: 16px; }
+    .footer-policy-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .footer-policy-links a { font-size: 0.8rem; color: var(--earth-light); text-decoration: none; transition: color 0.2s; }
+    .footer-policy-links a:hover, .footer-policy-links a.current { color: var(--terracotta-light); }
+
+    @media (max-width: 860px) {
+      .doc-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .toc { position: static; background: var(--sand); border-radius: 12px; padding: 20px; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .nav { padding: 0 20px; }
+      .doc-hero { padding: 60px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark"></div>
+    <div class="logo-text">Walela Link <small>Services</small></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="doc-hero">
+  <div class="doc-hero-inner">
+    <div class="doc-badge">🔒 Privacy & Data</div>
+    <h1>Privacy Policy</h1>
+    <p>We are committed to protecting your personal data. This policy explains what we collect, why we collect it, and how we keep it safe.</p>
+    <div class="doc-meta">
+      <span>📅 Last updated: 15 April 2025</span>
+      <span>🌍 Applicable in: Kenya & East Africa</span>
+    </div>
+    <div class="rights-row">
+      <span class="right-chip">👁️ Transparency</span>
+      <span class="right-chip">🔐 Encryption</span>
+      <span class="right-chip">🚫 No Data Selling</span>
+      <span class="right-chip">✋ Your Rights</span>
+      <span class="right-chip">🍪 Cookie Control</span>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout">
+
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#overview">1. Overview</a></li>
+      <li><a href="#data-we-collect">2. Data We Collect</a></li>
+      <li><a href="#how-we-use">3. How We Use Your Data</a></li>
+      <li><a href="#legal-basis">4. Legal Basis</a></li>
+      <li><a href="#sharing">5. Data Sharing</a></li>
+      <li><a href="#retention">6. Data Retention</a></li>
+      <li><a href="#security">7. Data Security</a></li>
+      <li><a href="#your-rights">8. Your Rights</a></li>
+      <li><a href="#children">9. Children's Privacy</a></li>
+      <li><a href="#transfers">10. International Transfers</a></li>
+      <li><a href="#updates">11. Policy Updates</a></li>
+      <li><a href="#contact-privacy">12. Contact Us</a></li>
+    </ul>
+    <div class="toc-divider"></div>
+    <div class="toc-title">Related Policies</div>
+    <div class="toc-policy-links">
+      <a href="terms.html">📋 Terms of Service</a>
+      <a href="cookies.html">🍪 Cookie Policy</a>
+    </div>
+  </aside>
+
+  <article class="doc-content">
+
+    <div class="info-box tip">
+      <strong>Our Commitment:</strong> We never sell your personal data to third parties. Your information is used solely to deliver and improve our services.
+    </div>
+
+    <div class="doc-section" id="overview">
+      <h2><span class="sec-num">1</span>Overview</h2>
+      <p>Walela Link Services ("we," "us," or "our") operates the walelalink.co.ke platform and associated mobile applications. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our services.</p>
+      <p>This policy is drafted in compliance with the Kenya Data Protection Act, 2019 and aligns with internationally recognised data protection principles.</p>
+      <p>By using our services, you consent to the data practices described in this policy. If you do not agree, please discontinue use of our platform.</p>
+    </div>
+
+    <div class="doc-section" id="data-we-collect">
+      <h2><span class="sec-num">2</span>Data We Collect</h2>
+      <h3>2.1 Information You Provide</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Data Type</th><th>Examples</th><th>When Collected</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Identity Data</strong></td><td>Full name, date of birth, national ID</td><td>Account registration, KYC verification</td></tr>
+          <tr><td><strong>Contact Data</strong></td><td>Email, phone number, physical address</td><td>Registration, service bookings</td></tr>
+          <tr><td><strong>Payment Data</strong></td><td>M-Pesa number, bank account details</td><td>Transactions (stored by payment processor)</td></tr>
+          <tr><td><strong>Service Data</strong></td><td>Delivery addresses, cargo details, trip preferences</td><td>Service orders</td></tr>
+          <tr><td><strong>Communication Data</strong></td><td>Messages, feedback, support requests</td><td>Customer interactions</td></tr>
+        </tbody>
+      </table>
+      <h3>2.2 Data Collected Automatically</h3>
+      <p>When you use our platform, we automatically collect technical data including IP address, device type, browser type, operating system, pages visited, timestamps, and referring URLs. This is collected via cookies and similar technologies — see our <a href="cookies.html" style="color:var(--terracotta);font-weight:600;">Cookie Policy</a> for details.</p>
+      <h3>2.3 Data from Third Parties</h3>
+      <p>We may receive data about you from third-party sources including social login providers (Google, Facebook), payment processors, and publicly available sources, where permitted by law.</p>
+    </div>
+
+    <div class="doc-section" id="how-we-use">
+      <h2><span class="sec-num">3</span>How We Use Your Data</h2>
+      <p>We use your personal data for the following purposes:</p>
+      <ul>
+        <li><strong>Service Delivery</strong> — to process orders, coordinate deliveries, and provide the services you've requested</li>
+        <li><strong>Account Management</strong> — to create and manage your account, authenticate logins, and maintain your preferences</li>
+        <li><strong>Communications</strong> — to send booking confirmations, tracking updates, receipts, and customer support responses</li>
+        <li><strong>Marketing</strong> — to send promotional offers and service updates (only with your explicit consent, which you may withdraw at any time)</li>
+        <li><strong>Platform Improvement</strong> — to analyse usage patterns, fix bugs, and enhance our services</li>
+        <li><strong>Legal Compliance</strong> — to meet obligations under Kenyan law, including tax, fraud prevention, and regulatory requirements</li>
+        <li><strong>Safety & Security</strong> — to detect, investigate, and prevent fraudulent or harmful activities</li>
+      </ul>
+    </div>
+
+    <div class="doc-section" id="legal-basis">
+      <h2><span class="sec-num">4</span>Legal Basis for Processing</h2>
+      <p>Under the Kenya Data Protection Act, 2019, we process your data on the following legal bases:</p>
+      <ul>
+        <li><strong>Contract Performance</strong> — processing necessary to deliver services you have requested</li>
+        <li><strong>Legitimate Interests</strong> — improving our services, preventing fraud, and maintaining security</li>
+        <li><strong>Legal Obligation</strong> — compliance with applicable laws and regulations</li>
+        <li><strong>Consent</strong> — for marketing communications and non-essential cookies (which you may withdraw at any time)</li>
+      </ul>
+    </div>
+
+    <div class="doc-section" id="sharing">
+      <h2><span class="sec-num">5</span>Data Sharing</h2>
+      <p>We do not sell your personal data. We may share your data with the following categories of third parties:</p>
+      <ul>
+        <li><strong>Service Partners</strong> — delivery riders, freight agents, tour operators, and other service providers engaged to fulfil your orders</li>
+        <li><strong>Payment Processors</strong> — M-Pesa (Safaricom) and banking partners for transaction processing</li>
+        <li><strong>Technology Providers</strong> — cloud hosting, analytics, and communication platforms that support our operations</li>
+        <li><strong>Legal Authorities</strong> — government agencies or law enforcement where required by law or court order</li>
+      </ul>
+      <p>All third parties are contractually required to handle your data with the same level of protection we provide and to use it only for specified purposes.</p>
+      <div class="info-box note">
+        <strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your data may be transferred. We will notify you before any such transfer and provide the option to opt out.
+      </div>
+    </div>
+
+    <div class="doc-section" id="retention">
+      <h2><span class="sec-num">6</span>Data Retention</h2>
+      <p>We retain your personal data only as long as necessary for the purposes it was collected, unless a longer retention period is required by law. General retention periods:</p>
+      <ul>
+        <li><strong>Account Data:</strong> For the lifetime of your account, plus 3 years after closure</li>
+        <li><strong>Transaction Records:</strong> 7 years (for tax and legal compliance under the Kenya Revenue Authority requirements)</li>
+        <li><strong>Marketing Preferences:</strong> Until you withdraw consent</li>
+        <li><strong>Technical Logs:</strong> 90 days</li>
+      </ul>
+      <p>When data is no longer required, it is securely deleted or anonymised in accordance with our data destruction procedures.</p>
+    </div>
+
+    <div class="doc-section" id="security">
+      <h2><span class="sec-num">7</span>Data Security</h2>
+      <p>We implement a range of technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction:</p>
+      <ul>
+        <li>TLS/SSL encryption for all data transmitted between your device and our servers</li>
+        <li>Encrypted storage of sensitive data including passwords (hashed with bcrypt) and payment information</li>
+        <li>Role-based access controls limiting staff access to data on a need-to-know basis</li>
+        <li>Regular security audits and vulnerability assessments</li>
+        <li>Multi-factor authentication for administrative access</li>
+      </ul>
+      <p>Despite our best efforts, no internet transmission is completely secure. In the event of a data breach that poses a risk to your rights, we will notify you and the relevant authorities in accordance with the Data Protection Act, 2019.</p>
+    </div>
+
+    <div class="doc-section" id="your-rights">
+      <h2><span class="sec-num">8</span>Your Rights</h2>
+      <p>Under the Kenya Data Protection Act, 2019, you have the following rights regarding your personal data:</p>
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="right-card-icon">👁️</div>
+          <h4>Right of Access</h4>
+          <p>Request a copy of the personal data we hold about you.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-icon">✏️</div>
+          <h4>Right to Rectification</h4>
+          <p>Request correction of inaccurate or incomplete data.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-icon">🗑️</div>
+          <h4>Right to Erasure</h4>
+          <p>Request deletion of your data where there is no lawful reason to retain it.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-icon">⏸️</div>
+          <h4>Right to Restrict</h4>
+          <p>Request that we limit how we process your data in certain circumstances.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-icon">📦</div>
+          <h4>Right to Portability</h4>
+          <p>Receive your data in a structured, machine-readable format.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-icon">🚫</div>
+          <h4>Right to Object</h4>
+          <p>Object to processing based on legitimate interests or for direct marketing.</p>
+        </div>
+      </div>
+      <p style="margin-top:16px;">To exercise any of these rights, contact us at <a href="mailto:privacy@walelalink.co.ke" style="color:var(--terracotta);font-weight:600;">privacy@walelalink.co.ke</a>. We will respond within 30 days. You may also lodge a complaint with the Office of the Data Protection Commissioner (ODPC) of Kenya.</p>
+    </div>
+
+    <div class="doc-section" id="children">
+      <h2><span class="sec-num">9</span>Children's Privacy</h2>
+      <p>Our services are not directed at children under the age of 18. We do not knowingly collect personal data from minors. If you believe a child has provided us with personal information, please contact us immediately and we will delete it promptly.</p>
+    </div>
+
+    <div class="doc-section" id="transfers">
+      <h2><span class="sec-num">10</span>International Data Transfers</h2>
+      <p>Some of our third-party technology providers may process your data outside Kenya. Where this occurs, we ensure appropriate safeguards are in place, including data processing agreements that require equivalent data protection standards.</p>
+    </div>
+
+    <div class="doc-section" id="updates">
+      <h2><span class="sec-num">11</span>Policy Updates</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of material changes by email or a notice on our platform at least 14 days before the change takes effect. The "Last Updated" date at the top of this page indicates the most recent revision.</p>
+    </div>
+
+    <div class="doc-section" id="contact-privacy">
+      <h2><span class="sec-num">12</span>Contact Us</h2>
+      <p>If you have questions or concerns about this Privacy Policy or how we handle your data:</p>
+      <div class="contact-card">
+        <div class="contact-card-icon">🔒</div>
+        <div>
+          <h3>Data Protection Officer</h3>
+          <p>Walela Link Services, Nairobi Business Park, Ngong Road, Nairobi, Kenya</p>
+          <a href="mailto:privacy@walelalink.co.ke">privacy@walelalink.co.ke</a> &nbsp;·&nbsp;
+          <a href="contact.html">Contact Form</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<footer class="doc-footer">
+  <p>© <script>document.write(new Date().getFullYear())</script> Walela Link Services. All rights reserved.</p>
+  <div class="footer-policy-links">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html" class="current">Privacy Policy</a>
+    <a href="cookies.html">Cookie Policy</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.doc-section');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  });
+</script>
+</body>
+</html>

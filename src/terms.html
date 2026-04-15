@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Walela Link Services Terms of Service — understand your rights and responsibilities when using our platform." />
+  <title>Terms of Service | Walela Link Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terracotta: #C4622D; --terracotta-dark: #A3501E; --terracotta-light: #E8886A;
+      --sand: #F5EDE3; --sand-dark: #EAD9C8; --earth: #4A3728; --earth-mid: #6B5B4E;
+      --earth-light: #9C8A7A; --white: #FFFFFF; --olive: #6B7C4E;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--earth); line-height: 1.7; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand-dark);
+      padding: 0 40px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-mark { width: 32px; height: 32px; background: var(--terracotta); border-radius: 6px; position: relative; flex-shrink: 0; }
+    .logo-mark::after { content: ''; position: absolute; inset: 6px; background: rgba(255,255,255,0.3); border-radius: 2px; }
+    .logo-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--earth); line-height: 1.1; }
+    .logo-text small { display: block; font-family: var(--font-body); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth-light); }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--earth-mid); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); background: var(--sand); }
+
+    /* HERO */
+    .doc-hero {
+      background: var(--earth);
+      padding: 80px 40px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-hero::before {
+      content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .doc-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .doc-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,98,45,0.2); border: 1px solid rgba(196,98,45,0.3);
+      color: var(--terracotta-light); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+    }
+    .doc-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--sand); margin-bottom: 14px; }
+    .doc-hero p { font-size: 0.92rem; color: var(--earth-light); max-width: 520px; margin: 0 auto 24px; }
+    .doc-meta { display: flex; justify-content: center; gap: 24px; font-size: 0.78rem; color: var(--earth-light); }
+    .doc-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* LAYOUT */
+    .doc-layout {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 240px 1fr;
+      gap: 48px; padding: 60px 40px;
+    }
+
+    /* SIDEBAR TOC */
+    .toc { position: sticky; top: 84px; align-self: start; }
+    .toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth-light); margin-bottom: 14px; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 4px; }
+    .toc-list a {
+      display: block; font-size: 0.82rem; color: var(--earth-mid); text-decoration: none;
+      padding: 6px 10px; border-radius: 6px; border-left: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .toc-list a:hover, .toc-list a.active { color: var(--terracotta); border-left-color: var(--terracotta); background: rgba(196,98,45,0.06); }
+    .toc-divider { height: 1px; background: var(--sand-dark); margin: 12px 0; }
+    .toc-policy-links a {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; color: var(--earth-light); text-decoration: none;
+      padding: 5px 10px; border-radius: 6px; transition: color 0.2s;
+    }
+    .toc-policy-links a:hover { color: var(--terracotta); }
+
+    /* CONTENT */
+    .doc-content { min-width: 0; }
+
+    .doc-section { margin-bottom: 52px; scroll-margin-top: 90px; }
+    .doc-section h2 {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+      color: var(--earth); margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1.5px solid var(--sand-dark);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .doc-section h2 .sec-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 6px;
+      background: var(--terracotta); color: white; font-family: var(--font-body);
+      font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .doc-section h3 { font-size: 1rem; font-weight: 600; color: var(--earth); margin: 20px 0 8px; }
+    .doc-section p { font-size: 0.9rem; color: var(--earth-mid); margin-bottom: 14px; line-height: 1.8; }
+    .doc-section ul, .doc-section ol { padding-left: 20px; margin-bottom: 14px; }
+    .doc-section li { font-size: 0.9rem; color: var(--earth-mid); margin-bottom: 6px; line-height: 1.7; }
+
+    /* Info boxes */
+    .info-box {
+      padding: 16px 20px; border-radius: 10px; margin: 20px 0;
+      font-size: 0.87rem; line-height: 1.7;
+    }
+    .info-box.note { background: rgba(196,98,45,0.07); border-left: 3px solid var(--terracotta); color: var(--earth-mid); }
+    .info-box.warning { background: rgba(217,79,79,0.07); border-left: 3px solid #D94F4F; color: var(--earth-mid); }
+    .info-box.tip { background: rgba(107,124,78,0.08); border-left: 3px solid var(--olive); color: var(--earth-mid); }
+    .info-box strong { color: var(--earth); }
+
+    /* Contact card */
+    .contact-card {
+      background: var(--sand); border-radius: 14px; padding: 24px 28px; margin-top: 40px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .contact-card-icon { font-size: 2rem; flex-shrink: 0; }
+    .contact-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--earth); margin-bottom: 4px; }
+    .contact-card p { font-size: 0.84rem; color: var(--earth-mid); margin: 0 0 12px; }
+    .contact-card a { color: var(--terracotta); font-weight: 600; text-decoration: none; font-size: 0.84rem; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* Footer */
+    .doc-footer { background: var(--earth); padding: 48px 40px; text-align: center; }
+    .doc-footer p { font-size: 0.82rem; color: var(--earth-light); margin-bottom: 16px; }
+    .footer-policy-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .footer-policy-links a { font-size: 0.8rem; color: var(--earth-light); text-decoration: none; transition: color 0.2s; }
+    .footer-policy-links a:hover, .footer-policy-links a.current { color: var(--terracotta-light); }
+
+    @media (max-width: 860px) {
+      .doc-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .toc { position: static; background: var(--sand); border-radius: 12px; padding: 20px; margin-bottom: 8px; }
+      .nav { padding: 0 20px; }
+      .doc-hero { padding: 60px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark"></div>
+    <div class="logo-text">Walela Link <small>Services</small></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="doc-hero">
+  <div class="doc-hero-inner">
+    <div class="doc-badge">📋 Legal Document</div>
+    <h1>Terms of Service</h1>
+    <p>Please read these terms carefully before using Walela Link Services. By accessing our platform, you agree to be bound by these terms.</p>
+    <div class="doc-meta">
+      <span>📅 Last updated: 15 April 2025</span>
+      <span>🌍 Applicable in: Kenya & East Africa</span>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout">
+
+  <!-- TOC Sidebar -->
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+      <li><a href="#services">2. Our Services</a></li>
+      <li><a href="#accounts">3. User Accounts</a></li>
+      <li><a href="#conduct">4. Acceptable Use</a></li>
+      <li><a href="#payments">5. Payments & Fees</a></li>
+      <li><a href="#cancellation">6. Cancellations & Refunds</a></li>
+      <li><a href="#liability">7. Limitation of Liability</a></li>
+      <li><a href="#ip">8. Intellectual Property</a></li>
+      <li><a href="#termination">9. Termination</a></li>
+      <li><a href="#governing">10. Governing Law</a></li>
+      <li><a href="#changes">11. Changes to Terms</a></li>
+      <li><a href="#contact-legal">12. Contact Us</a></li>
+    </ul>
+    <div class="toc-divider"></div>
+    <div class="toc-title">Related Policies</div>
+    <div class="toc-policy-links">
+      <a href="privacy.html">🔒 Privacy Policy</a>
+      <a href="cookies.html">🍪 Cookie Policy</a>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <article class="doc-content">
+
+    <div class="info-box note">
+      <strong>Summary:</strong> These Terms govern your use of Walela Link Services. By creating an account or using our services, you accept these terms in full. If you do not agree, please do not use our platform.
+    </div>
+
+    <div class="doc-section" id="acceptance">
+      <h2><span class="sec-num">1</span>Acceptance of Terms</h2>
+      <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "Client," or "you") and Walela Link Services ("Company," "we," "us," or "our"), a business registered and operating in Nairobi, Kenya.</p>
+      <p>By accessing or using our website, mobile application, or any of our services, you confirm that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you are using our services on behalf of a business or organisation, you represent that you have authority to bind that entity to these Terms.</p>
+      <p>You must be at least 18 years of age to create an account and use our services. By using our platform, you represent and warrant that you meet this age requirement.</p>
+    </div>
+
+    <div class="doc-section" id="services">
+      <h2><span class="sec-num">2</span>Our Services</h2>
+      <p>Walela Link Services provides an integrated platform offering the following categories of services:</p>
+      <ul>
+        <li><strong>Cargo Container Logistics</strong> — transportation, clearance, and handling of cargo</li>
+        <li><strong>Delivery Services</strong> — last-mile courier and package delivery within covered regions</li>
+        <li><strong>Petty Errands</strong> — personal errands, shopping assistance, and task execution</li>
+        <li><strong>Tourism Itinerary Planning</strong> — travel planning, bookings, and trip coordination</li>
+        <li><strong>Entertainment Equipment Hire</strong> — rental of audio-visual and event equipment</li>
+        <li><strong>ICT Equipment Sales</strong> — sale and supply of technology hardware and accessories</li>
+        <li><strong>Fashion Design & Accessories</strong> — custom fashion services and accessory retail</li>
+      </ul>
+      <p>We reserve the right to modify, suspend, or discontinue any service at any time, with reasonable notice where possible. New services may be introduced and will be subject to these Terms unless separate terms are provided.</p>
+      <div class="info-box tip">
+        <strong>Service Coverage:</strong> We currently serve Nairobi, Mombasa, and Kisumu, with select services available nationally and regionally in East Africa.
+      </div>
+    </div>
+
+    <div class="doc-section" id="accounts">
+      <h2><span class="sec-num">3</span>User Accounts</h2>
+      <h3>3.1 Account Registration</h3>
+      <p>To access most of our services, you must create an account by providing accurate and complete information, including your full name, email address, and phone number. You agree to keep this information current and accurate.</p>
+      <h3>3.2 Account Security</h3>
+      <p>You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. You must notify us immediately if you suspect any unauthorised access to your account.</p>
+      <h3>3.3 Account Types</h3>
+      <p>We offer three account types — Individual, Business, and Agency — each with different features and responsibilities. Business and Agency accounts may be subject to additional verification and contractual terms.</p>
+      <div class="info-box warning">
+        <strong>Account Sharing:</strong> Sharing your account credentials with third parties is strictly prohibited. Each account is for the sole use of the registered user or entity.
+      </div>
+    </div>
+
+    <div class="doc-section" id="conduct">
+      <h2><span class="sec-num">4</span>Acceptable Use</h2>
+      <p>You agree to use our platform only for lawful purposes and in accordance with these Terms. You must not:</p>
+      <ul>
+        <li>Use the platform to transmit illegal, harmful, or offensive content</li>
+        <li>Attempt to gain unauthorised access to any part of our system or another user's account</li>
+        <li>Use the platform to facilitate the transport or trade of prohibited goods, including controlled substances, counterfeit goods, or weapons</li>
+        <li>Engage in fraudulent activity, including providing false information or misrepresenting yourself</li>
+        <li>Use automated scripts, bots, or other means to access the platform in a non-human manner without prior written consent</li>
+        <li>Reverse engineer, decompile, or attempt to extract the source code of our software</li>
+        <li>Harass, abuse, or threaten our staff, agents, or other users</li>
+        <li>Post or transmit content that infringes on the intellectual property rights of others</li>
+      </ul>
+      <p>We reserve the right to terminate accounts that violate these provisions without notice.</p>
+    </div>
+
+    <div class="doc-section" id="payments">
+      <h2><span class="sec-num">5</span>Payments & Fees</h2>
+      <h3>5.1 Pricing</h3>
+      <p>Prices for our services are displayed on the platform and may vary based on service type, volume, distance, and complexity. All prices are quoted in Kenyan Shillings (KES) unless otherwise stated.</p>
+      <h3>5.2 Payment Methods</h3>
+      <p>We accept the following payment methods: M-Pesa, bank transfers (local and international), and cash. Business accounts may apply for invoicing with net payment terms subject to credit approval.</p>
+      <h3>5.3 Billing</h3>
+      <p>Payments are due at the time of booking unless a credit arrangement has been approved. Invoiced clients must settle outstanding balances within the agreed payment terms. Late payments may attract interest charges.</p>
+      <h3>5.4 Taxes</h3>
+      <p>All applicable taxes, including VAT where applicable under Kenyan law, will be included in or added to the price of services. You are responsible for any taxes applicable in your jurisdiction beyond our obligations.</p>
+    </div>
+
+    <div class="doc-section" id="cancellation">
+      <h2><span class="sec-num">6</span>Cancellations & Refunds</h2>
+      <h3>6.1 Cancellation by Client</h3>
+      <p>Cancellation policies vary by service type. Generally, cancellations made more than 24 hours in advance will receive a full refund. Cancellations within 24 hours may incur a cancellation fee of up to 50% of the service cost.</p>
+      <h3>6.2 Cancellation by Walela Link Services</h3>
+      <p>We reserve the right to cancel a booking due to circumstances beyond our control (force majeure), non-payment, or safety concerns. In such cases, a full refund will be issued where payment has been made.</p>
+      <h3>6.3 Refund Process</h3>
+      <p>Approved refunds will be processed within 5–10 business days using the original payment method. For disputes, please contact our support team within 14 days of the service date.</p>
+      <div class="info-box note">
+        <strong>Note:</strong> Customised or bespoke orders (e.g., fashion design, specialised cargo arrangements) may have non-refundable deposits. This will be communicated at the point of order.
+      </div>
+    </div>
+
+    <div class="doc-section" id="liability">
+      <h2><span class="sec-num">7</span>Limitation of Liability</h2>
+      <p>To the fullest extent permitted by applicable law, Walela Link Services shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services or platform.</p>
+      <p>Our total liability in connection with any claim arising under these Terms shall not exceed the amount you paid for the specific service giving rise to the claim in the 30 days prior to the claim.</p>
+      <p>We do not guarantee uninterrupted or error-free operation of our platform. We are not liable for losses resulting from third-party service failures, acts of God, civil unrest, or other circumstances beyond our reasonable control.</p>
+      <h3>7.1 Goods in Transit</h3>
+      <p>While we take all reasonable precautions, our liability for loss or damage to goods in transit is limited to the declared value of the goods up to a maximum of KES 50,000 per consignment, unless additional insurance coverage has been arranged.</p>
+    </div>
+
+    <div class="doc-section" id="ip">
+      <h2><span class="sec-num">8</span>Intellectual Property</h2>
+      <p>All content on our platform — including text, graphics, logos, icons, images, audio clips, and software — is the property of Walela Link Services or its content suppliers and is protected by Kenyan and international intellectual property laws.</p>
+      <p>You may not reproduce, distribute, modify, or create derivative works from our content without express written permission. You are granted a limited, non-exclusive, non-transferable licence to access and use the platform for its intended purpose.</p>
+      <p>Any content you upload or submit to our platform (e.g., profile photos, documents) remains your property, but you grant us a non-exclusive licence to use it as necessary to provide our services.</p>
+    </div>
+
+    <div class="doc-section" id="termination">
+      <h2><span class="sec-num">9</span>Termination</h2>
+      <p>You may terminate your account at any time by contacting our support team. We reserve the right to suspend or terminate your access to the platform immediately and without notice if:</p>
+      <ul>
+        <li>You breach any provision of these Terms</li>
+        <li>We are required to do so by law or court order</li>
+        <li>Continued access poses a risk to other users, our platform, or the company</li>
+      </ul>
+      <p>Upon termination, your right to use the platform ceases immediately. Outstanding obligations (including payment for services rendered) survive termination.</p>
+    </div>
+
+    <div class="doc-section" id="governing">
+      <h2><span class="sec-num">10</span>Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the Republic of Kenya. Any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Kenya.</p>
+      <p>We encourage clients to first attempt resolution through our customer support channels before initiating formal legal proceedings. We are committed to resolving disputes fairly and promptly.</p>
+    </div>
+
+    <div class="doc-section" id="changes">
+      <h2><span class="sec-num">11</span>Changes to Terms</h2>
+      <p>We reserve the right to update these Terms at any time. We will notify registered users of material changes via email or a prominent notice on our platform at least 14 days before the changes take effect.</p>
+      <p>Your continued use of our services after changes take effect constitutes your acceptance of the revised Terms. If you do not agree to the updated Terms, you must stop using our services and may request account deletion.</p>
+    </div>
+
+    <div class="doc-section" id="contact-legal">
+      <h2><span class="sec-num">12</span>Contact Us</h2>
+      <p>If you have questions about these Terms or need legal clarifications, please contact us:</p>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">⚖️</div>
+        <div>
+          <h3>Legal & Compliance Team</h3>
+          <p>Walela Link Services, Nairobi Business Park, Ngong Road, Nairobi, Kenya</p>
+          <a href="mailto:legal@walelalink.co.ke">legal@walelalink.co.ke</a> &nbsp;·&nbsp;
+          <a href="contact.html">Contact Form</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<footer class="doc-footer">
+  <p>© 2025 Walela Link Services. All rights reserved.</p>
+  <div class="footer-policy-links">
+    <a href="terms.html" class="current">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="cookies.html">Cookie Policy</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</footer>
+
+<script>
+  // Highlight active TOC item on scroll
+  const sections = document.querySelectorAll('.doc-section');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    tocLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>

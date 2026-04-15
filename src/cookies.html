@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Walela Link Services Cookie Policy — how we use cookies and how you can manage your preferences." />
+  <title>Cookie Policy | Walela Link Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terracotta: #C4622D; --terracotta-dark: #A3501E; --terracotta-light: #E8886A;
+      --sand: #F5EDE3; --sand-dark: #EAD9C8; --earth: #4A3728; --earth-mid: #6B5B4E;
+      --earth-light: #9C8A7A; --white: #FFFFFF; --olive: #6B7C4E;
+      --font-display: 'Playfair Display', Georgia, serif; --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--earth); line-height: 1.7; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--sand-dark); padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-mark { width: 32px; height: 32px; background: var(--terracotta); border-radius: 6px; position: relative; flex-shrink: 0; }
+    .logo-mark::after { content: ''; position: absolute; inset: 6px; background: rgba(255,255,255,0.3); border-radius: 2px; }
+    .logo-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--earth); line-height: 1.1; }
+    .logo-text small { display: block; font-family: var(--font-body); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--earth-light); }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--earth-mid); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); background: var(--sand); }
+
+    /* Hero - different warm tone */
+    .doc-hero { background: linear-gradient(160deg, #3A2515 0%, #5C3D22 100%); padding: 80px 40px 64px; text-align: center; position: relative; overflow: hidden; }
+    .doc-hero::before { content: ''; position: absolute; top: -50px; left: -50px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(196,98,45,0.22) 0%, transparent 70%); pointer-events: none; }
+    .doc-hero::after { content: ''; position: absolute; bottom: -70px; right: 10%; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(245,237,227,0.06) 0%, transparent 70%); pointer-events: none; }
+    .doc-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .doc-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,98,45,0.2); border: 1px solid rgba(196,98,45,0.3); color: var(--terracotta-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
+    .doc-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--sand); margin-bottom: 14px; }
+    .doc-hero p { font-size: 0.92rem; color: var(--earth-light); max-width: 520px; margin: 0 auto 24px; }
+    .doc-meta { display: flex; justify-content: center; gap: 24px; font-size: 0.78rem; color: var(--earth-light); flex-wrap: wrap; }
+
+    /* Cookie type chips */
+    .cookie-types-hero { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+    .cookie-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.13);
+      padding: 8px 16px; border-radius: 999px; font-size: 0.8rem; font-weight: 500; color: var(--sand);
+    }
+    .cookie-chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    .doc-layout { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 240px 1fr; gap: 48px; padding: 60px 40px; }
+
+    .toc { position: sticky; top: 84px; align-self: start; }
+    .toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth-light); margin-bottom: 14px; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 4px; }
+    .toc-list a { display: block; font-size: 0.82rem; color: var(--earth-mid); text-decoration: none; padding: 6px 10px; border-radius: 6px; border-left: 2px solid transparent; transition: all 0.2s; }
+    .toc-list a:hover, .toc-list a.active { color: var(--terracotta); border-left-color: var(--terracotta); background: rgba(196,98,45,0.06); }
+    .toc-divider { height: 1px; background: var(--sand-dark); margin: 12px 0; }
+    .toc-policy-links a { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--earth-light); text-decoration: none; padding: 5px 10px; border-radius: 6px; transition: color 0.2s; }
+    .toc-policy-links a:hover { color: var(--terracotta); }
+
+    .doc-content { min-width: 0; }
+    .doc-section { margin-bottom: 52px; scroll-margin-top: 90px; }
+    .doc-section h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--earth); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1.5px solid var(--sand-dark); display: flex; align-items: center; gap: 12px; }
+    .doc-section h2 .sec-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; background: var(--terracotta); color: white; font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .doc-section h3 { font-size: 1rem; font-weight: 600; color: var(--earth); margin: 20px 0 8px; }
+    .doc-section p { font-size: 0.9rem; color: var(--earth-mid); margin-bottom: 14px; line-height: 1.8; }
+    .doc-section ul { padding-left: 20px; margin-bottom: 14px; }
+    .doc-section li { font-size: 0.9rem; color: var(--earth-mid); margin-bottom: 6px; line-height: 1.7; }
+
+    .info-box { padding: 16px 20px; border-radius: 10px; margin: 20px 0; font-size: 0.87rem; line-height: 1.7; }
+    .info-box.note { background: rgba(196,98,45,0.07); border-left: 3px solid var(--terracotta); color: var(--earth-mid); }
+    .info-box.tip { background: rgba(107,124,78,0.08); border-left: 3px solid var(--olive); color: var(--earth-mid); }
+    .info-box strong { color: var(--earth); }
+
+    /* Cookie category cards */
+    .cookie-cards { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
+    .cookie-card {
+      border: 1.5px solid var(--sand-dark); border-radius: 12px; overflow: hidden;
+    }
+    .cookie-card-head {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; background: var(--sand);
+    }
+    .cookie-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .cookie-card-head h3 { font-size: 0.95rem; font-weight: 700; color: var(--earth); margin: 0; flex: 1; }
+    .cookie-badge {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 999px;
+    }
+    .cookie-badge.required { background: rgba(217,79,79,0.12); color: #C0392B; }
+    .cookie-badge.optional { background: rgba(196,98,45,0.12); color: var(--terracotta); }
+    .cookie-card-body { padding: 16px 20px; }
+    .cookie-card-body p { font-size: 0.87rem; color: var(--earth-mid); margin-bottom: 10px; line-height: 1.7; }
+    .cookie-card-body ul { padding-left: 18px; }
+    .cookie-card-body li { font-size: 0.85rem; color: var(--earth-mid); margin-bottom: 4px; }
+
+    /* Data table */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 20px 0; }
+    .data-table th { background: var(--earth); color: var(--sand); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.05em; }
+    .data-table th:first-child { border-radius: 8px 0 0 0; }
+    .data-table th:last-child { border-radius: 0 8px 0 0; }
+    .data-table td { padding: 9px 14px; border-bottom: 1px solid var(--sand-dark); color: var(--earth-mid); vertical-align: top; line-height: 1.5; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: rgba(245,237,227,0.5); }
+
+    /* Preferences panel */
+    .prefs-panel { background: var(--sand); border-radius: 14px; padding: 28px; margin: 24px 0; }
+    .prefs-panel h3 { font-size: 1rem; font-weight: 700; color: var(--earth); margin-bottom: 6px; }
+    .prefs-panel > p { font-size: 0.86rem; color: var(--earth-mid); margin-bottom: 20px; }
+    .pref-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--sand-dark); }
+    .pref-row:first-of-type { border-top: none; }
+    .pref-info strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--earth); margin-bottom: 3px; }
+    .pref-info span { font-size: 0.81rem; color: var(--earth-light); line-height: 1.5; }
+    /* Toggle switch */
+    .toggle { position: relative; display: inline-block; width: 44px; height: 24px; flex-shrink: 0; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; inset: 0; background: var(--sand-dark); border-radius: 24px; transition: background 0.3s; }
+    .slider::before { content: ''; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: transform 0.3s; }
+    .toggle input:checked + .slider { background: var(--terracotta); }
+    .toggle input:checked + .slider::before { transform: translateX(20px); }
+    .toggle input:disabled + .slider { opacity: 0.6; cursor: not-allowed; }
+
+    .save-prefs-btn {
+      margin-top: 18px; padding: 10px 24px;
+      background: var(--terracotta); color: white; border: none; border-radius: 8px;
+      font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; cursor: pointer;
+      transition: background 0.2s; box-shadow: 0 3px 10px rgba(196,98,45,0.25);
+    }
+    .save-prefs-btn:hover { background: var(--terracotta-dark); }
+
+    .contact-card { background: var(--sand); border-radius: 14px; padding: 24px 28px; margin-top: 40px; display: flex; align-items: center; gap: 20px; }
+    .contact-card-icon { font-size: 2rem; flex-shrink: 0; }
+    .contact-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--earth); margin-bottom: 4px; }
+    .contact-card p { font-size: 0.84rem; color: var(--earth-mid); margin: 0 0 12px; }
+    .contact-card a { color: var(--terracotta); font-weight: 600; text-decoration: none; font-size: 0.84rem; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    .doc-footer { background: var(--earth); padding: 48px 40px; text-align: center; }
+    .doc-footer p { font-size: 0.82rem; color: var(--earth-light); margin-bottom: 16px; }
+    .footer-policy-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .footer-policy-links a { font-size: 0.8rem; color: var(--earth-light); text-decoration: none; transition: color 0.2s; }
+    .footer-policy-links a:hover, .footer-policy-links a.current { color: var(--terracotta-light); }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--earth); color: var(--sand); padding: 12px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.18); z-index: 9999; opacity: 0; transition: opacity 0.3s, transform 0.3s; white-space: nowrap; pointer-events: none; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.success { background: var(--olive); }
+
+    @media (max-width: 860px) {
+      .doc-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .toc { position: static; background: var(--sand); border-radius: 12px; padding: 20px; }
+      .nav { padding: 0 20px; }
+      .doc-hero { padding: 60px 20px 48px; }
+      .data-table { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark"></div>
+    <div class="logo-text">Walela Link <small>Services</small></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="doc-hero">
+  <div class="doc-hero-inner">
+    <div class="doc-badge">🍪 Cookies & Tracking</div>
+    <h1>Cookie Policy</h1>
+    <p>We use cookies to make our website work, improve your experience, and understand how people use our services. Here's what you need to know.</p>
+    <div class="doc-meta">
+      <span>📅 Last updated: 15 April 2025</span>
+      <span>⚙️ You can manage preferences below</span>
+    </div>
+    <div class="cookie-types-hero">
+      <span class="cookie-chip"><span class="cookie-chip-dot" style="background:#4CAF50;"></span>Essential</span>
+      <span class="cookie-chip"><span class="cookie-chip-dot" style="background:#2196F3;"></span>Functional</span>
+      <span class="cookie-chip"><span class="cookie-chip-dot" style="background:#FF9800;"></span>Analytics</span>
+      <span class="cookie-chip"><span class="cookie-chip-dot" style="background:#9C27B0;"></span>Marketing</span>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout">
+
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#what-are-cookies">1. What Are Cookies?</a></li>
+      <li><a href="#how-we-use">2. How We Use Cookies</a></li>
+      <li><a href="#types">3. Types of Cookies</a></li>
+      <li><a href="#cookie-list">4. Cookie List</a></li>
+      <li><a href="#preferences">5. Manage Preferences</a></li>
+      <li><a href="#third-party">6. Third-Party Cookies</a></li>
+      <li><a href="#browser-control">7. Browser Controls</a></li>
+      <li><a href="#updates">8. Policy Updates</a></li>
+      <li><a href="#contact-cookies">9. Contact Us</a></li>
+    </ul>
+    <div class="toc-divider"></div>
+    <div class="toc-title">Related Policies</div>
+    <div class="toc-policy-links">
+      <a href="terms.html">📋 Terms of Service</a>
+      <a href="privacy.html">🔒 Privacy Policy</a>
+    </div>
+  </aside>
+
+  <article class="doc-content">
+
+    <div class="info-box tip">
+      <strong>Quick Summary:</strong> We use essential cookies to make the site work. We also use optional analytics and marketing cookies — but only with your consent. You can manage your preferences at any time in the <a href="#preferences" style="color:var(--olive);font-weight:600;">preferences section</a> below.
+    </div>
+
+    <div class="doc-section" id="what-are-cookies">
+      <h2><span class="sec-num">1</span>What Are Cookies?</h2>
+      <p>Cookies are small text files placed on your device (computer, smartphone, or tablet) when you visit a website. They allow the website to recognise your device on return visits and remember information about your session — such as items in a cart, login status, or language preference.</p>
+      <p>Cookies are not programs and cannot carry viruses or malware. They simply store data about your browsing behaviour that the website can read on subsequent visits.</p>
+      <p>In addition to cookies, we may use similar technologies such as web beacons (pixel tags), local storage, and session storage, which function in comparable ways. This policy covers all such technologies.</p>
+    </div>
+
+    <div class="doc-section" id="how-we-use">
+      <h2><span class="sec-num">2</span>How We Use Cookies</h2>
+      <p>We use cookies to:</p>
+      <ul>
+        <li>Keep you signed in to your account during a session</li>
+        <li>Remember your preferences (language, region, display settings)</li>
+        <li>Enable core platform functionality such as the shopping cart and booking flow</li>
+        <li>Understand how visitors navigate our site so we can improve it</li>
+        <li>Measure the effectiveness of our marketing campaigns</li>
+        <li>Protect the platform against fraud and security threats</li>
+        <li>Provide personalised content and service recommendations</li>
+      </ul>
+    </div>
+
+    <div class="doc-section" id="types">
+      <h2><span class="sec-num">3</span>Types of Cookies We Use</h2>
+
+      <div class="cookie-cards">
+
+        <div class="cookie-card">
+          <div class="cookie-card-head">
+            <div class="cookie-dot" style="background:#4CAF50;"></div>
+            <h3>Essential Cookies</h3>
+            <span class="cookie-badge required">Always Active</span>
+          </div>
+          <div class="cookie-card-body">
+            <p>These cookies are strictly necessary for the website to function. Without them, you cannot log in, place orders, or use secure areas. They do not track browsing activity beyond what is necessary to provide the service.</p>
+            <ul>
+              <li>User authentication and session management</li>
+              <li>Security tokens and CSRF protection</li>
+              <li>Load balancing and server routing</li>
+              <li>Cookie consent preference storage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cookie-card">
+          <div class="cookie-card-head">
+            <div class="cookie-dot" style="background:#2196F3;"></div>
+            <h3>Functional Cookies</h3>
+            <span class="cookie-badge optional">Optional</span>
+          </div>
+          <div class="cookie-card-body">
+            <p>These cookies enable enhanced functionality and personalisation. Disabling them may affect some features but will not prevent the core service from working.</p>
+            <ul>
+              <li>Remembering your account type and display preferences</li>
+              <li>Storing your last-used service category</li>
+              <li>Remembering your region (Nairobi, Mombasa, Kisumu)</li>
+              <li>Pre-filling form fields on return visits</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cookie-card">
+          <div class="cookie-card-head">
+            <div class="cookie-dot" style="background:#FF9800;"></div>
+            <h3>Analytics Cookies</h3>
+            <span class="cookie-badge optional">Optional</span>
+          </div>
+          <div class="cookie-card-body">
+            <p>These cookies help us understand how visitors interact with our platform. All data is aggregated and anonymised — we cannot identify you individually from analytics data.</p>
+            <ul>
+              <li>Pages visited and time spent per page</li>
+              <li>User journeys and navigation paths</li>
+              <li>Errors and performance issues</li>
+              <li>Device and browser usage statistics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cookie-card">
+          <div class="cookie-card-head">
+            <div class="cookie-dot" style="background:#9C27B0;"></div>
+            <h3>Marketing Cookies</h3>
+            <span class="cookie-badge optional">Optional</span>
+          </div>
+          <div class="cookie-card-body">
+            <p>These cookies track your browsing habits to serve you relevant advertisements on our platform and partner websites. They are only active with your explicit consent.</p>
+            <ul>
+              <li>Tracking ad clicks and conversions</li>
+              <li>Building interest-based advertising profiles</li>
+              <li>Retargeting visitors who have left without booking</li>
+              <li>Measuring campaign reach and effectiveness</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="doc-section" id="cookie-list">
+      <h2><span class="sec-num">4</span>Cookie List</h2>
+      <p>Below is a list of the specific cookies currently in use on our platform:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Cookie Name</th><th>Type</th><th>Purpose</th><th>Duration</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>wls_session</code></td><td>Essential</td><td>Maintains user login session</td><td>Session</td></tr>
+          <tr><td><code>wls_csrf</code></td><td>Essential</td><td>Cross-site request forgery protection</td><td>Session</td></tr>
+          <tr><td><code>wls_consent</code></td><td>Essential</td><td>Stores your cookie consent preferences</td><td>1 year</td></tr>
+          <tr><td><code>wls_auth_token</code></td><td>Essential</td><td>Secure authentication token</td><td>30 days (if "Remember me" checked)</td></tr>
+          <tr><td><code>wls_region</code></td><td>Functional</td><td>Stores your preferred service region</td><td>6 months</td></tr>
+          <tr><td><code>wls_prefs</code></td><td>Functional</td><td>UI and display preferences</td><td>1 year</td></tr>
+          <tr><td><code>_ga</code></td><td>Analytics</td><td>Google Analytics — distinguishes users</td><td>2 years</td></tr>
+          <tr><td><code>_ga_*</code></td><td>Analytics</td><td>Google Analytics — session data</td><td>2 years</td></tr>
+          <tr><td><code>_fbp</code></td><td>Marketing</td><td>Facebook Pixel — ad measurement</td><td>3 months</td></tr>
+          <tr><td><code>_gcl_au</code></td><td>Marketing</td><td>Google Ads — conversion tracking</td><td>3 months</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="preferences">
+      <h2><span class="sec-num">5</span>Manage Your Preferences</h2>
+      <p>You can customise which optional cookies you allow. Changes take effect immediately and are saved for one year.</p>
+
+      <div class="prefs-panel">
+        <h3>🍪 Cookie Preferences</h3>
+        <p>Toggle the categories below to control which cookies we use. Essential cookies cannot be disabled as they are required for the site to work.</p>
+
+        <div class="pref-row">
+          <div class="pref-info">
+            <strong>Essential Cookies</strong>
+            <span>Required for core functionality. Cannot be disabled.</span>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" checked disabled />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="pref-row">
+          <div class="pref-info">
+            <strong>Functional Cookies</strong>
+            <span>Remember your preferences and region settings.</span>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="prefFunctional" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="pref-row">
+          <div class="pref-info">
+            <strong>Analytics Cookies</strong>
+            <span>Help us understand how you use our site (anonymised).</span>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="prefAnalytics" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="pref-row">
+          <div class="pref-info">
+            <strong>Marketing Cookies</strong>
+            <span>Personalised ads and campaign measurement.</span>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="prefMarketing" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <button class="save-prefs-btn" onclick="savePrefs()">Save Preferences</button>
+      </div>
+    </div>
+
+    <div class="doc-section" id="third-party">
+      <h2><span class="sec-num">6</span>Third-Party Cookies</h2>
+      <p>Some cookies on our platform are set by third-party services we use. These parties have their own privacy policies and cookie practices:</p>
+      <ul>
+        <li><strong>Google Analytics</strong> — website analytics. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--terracotta);">Google Privacy Policy</a></li>
+        <li><strong>Google Ads</strong> — conversion tracking and advertising. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--terracotta);">Google Privacy Policy</a></li>
+        <li><strong>Facebook / Meta</strong> — social login and ad measurement. <a href="https://www.facebook.com/policy.php" target="_blank" rel="noopener" style="color:var(--terracotta);">Meta Privacy Policy</a></li>
+      </ul>
+      <div class="info-box note">
+        <strong>Note:</strong> We do not control third-party cookies. Please refer to each provider's privacy policy to understand how they use your data.
+      </div>
+    </div>
+
+    <div class="doc-section" id="browser-control">
+      <h2><span class="sec-num">7</span>Browser Controls</h2>
+      <p>In addition to using our preference panel above, you can manage cookies directly through your browser settings. Most browsers allow you to view, block, or delete cookies. Here are direct links to cookie management guides for common browsers:</p>
+      <ul>
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" style="color:var(--terracotta);">Google Chrome</a></li>
+        <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener" style="color:var(--terracotta);">Mozilla Firefox</a></li>
+        <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471" target="_blank" rel="noopener" style="color:var(--terracotta);">Apple Safari</a></li>
+        <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406" target="_blank" rel="noopener" style="color:var(--terracotta);">Microsoft Edge</a></li>
+      </ul>
+      <p>Please note that blocking all cookies may prevent you from logging in or using some features of our platform.</p>
+    </div>
+
+    <div class="doc-section" id="updates">
+      <h2><span class="sec-num">8</span>Policy Updates</h2>
+      <p>We may update this Cookie Policy to reflect changes in our use of cookies or applicable law. We will display a notice on our website when material changes are made. The "Last Updated" date at the top indicates the most recent revision.</p>
+      <p>We recommend reviewing this policy periodically to stay informed about how we use cookies.</p>
+    </div>
+
+    <div class="doc-section" id="contact-cookies">
+      <h2><span class="sec-num">9</span>Contact Us</h2>
+      <p>For questions about our use of cookies or this policy:</p>
+      <div class="contact-card">
+        <div class="contact-card-icon">🍪</div>
+        <div>
+          <h3>Privacy & Cookies Team</h3>
+          <p>Walela Link Services, Nairobi Business Park, Ngong Road, Nairobi, Kenya</p>
+          <a href="mailto:privacy@walelalink.co.ke">privacy@walelalink.co.ke</a> &nbsp;·&nbsp;
+          <a href="contact.html">Contact Form</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<footer class="doc-footer">
+  <p>© <script>document.write(new Date().getFullYear())</script> Walela Link Services. All rights reserved.</p>
+  <div class="footer-policy-links">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="cookies.html" class="current">Cookie Policy</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</footer>
+
+<script>
+  function showToast(msg, type='') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast' + (type ? ' '+type : '');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 3500);
+  }
+
+  function savePrefs() {
+    showToast('✓ Cookie preferences saved!', 'success');
+    // In production, persist to localStorage and update cookie consent flags
+  }
+
+  // Active TOC
+  const sections = document.querySelectorAll('.doc-section');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  });
+</script>
+</body>
+</html>

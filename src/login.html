@@ -3,348 +3,817 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Walela Link Services — get in touch for quotes, inquiries, and support across our seven service categories." />
-  <title>Contact Us | Walela Link Services</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Sign in to Walela Link Services — your all-in-one logistics and lifestyle platform." />
+  <title>Sign In | Walela Link Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terracotta: #C4622D;
+      --terracotta-dark: #A3501E;
+      --terracotta-light: #E8886A;
+      --sand: #F5EDE3;
+      --sand-dark: #EAD9C8;
+      --earth: #4A3728;
+      --earth-mid: #6B5B4E;
+      --earth-light: #9C8A7A;
+      --white: #FFFFFF;
+      --olive: #6B7C4E;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: var(--font-body);
+      background: var(--sand);
+      color: var(--earth);
+    }
+
+    /* ── LAYOUT ── */
+    .login-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ── LEFT PANEL ── */
+    .panel-brand {
+      position: relative;
+      background: var(--earth);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px 56px;
+      color: var(--sand);
+    }
+
+    /* Decorative background shapes */
+    .panel-brand::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .panel-brand::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Grain overlay */
+    .grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* Diagonal stripe accent */
+    .stripe-accent {
+      position: absolute;
+      top: 0; right: 100px;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(196,98,45,0.4) 30%, rgba(196,98,45,0.4) 70%, transparent);
+      pointer-events: none;
+    }
+
+    .brand-top {
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 40px; height: 40px;
+      background: var(--terracotta);
+      border-radius: 8px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .logo-mark::after {
+      content: '';
+      position: absolute;
+      inset: 7px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 3px;
+    }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--sand);
+      line-height: 1.1;
+    }
+    .logo-text small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--earth-light);
+    }
+
+    .brand-middle {
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta-light);
+      margin-bottom: 20px;
+    }
+    .brand-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px; height: 1.5px;
+      background: var(--terracotta-light);
+    }
+
+    .brand-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--sand);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .brand-headline em {
+      font-style: italic;
+      color: var(--terracotta-light);
+    }
+
+    .brand-desc {
+      font-size: 0.9rem;
+      color: var(--earth-light);
+      line-height: 1.8;
+      max-width: 360px;
+    }
+
+    /* Service chips */
+    .service-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(245,237,227,0.08);
+      border: 1px solid rgba(245,237,227,0.15);
+      font-size: 0.78rem;
+      color: var(--sand);
+      font-weight: 500;
+    }
+
+    .brand-bottom {
+      position: relative;
+      z-index: 2;
+    }
+    .brand-tagline {
+      font-size: 0.78rem;
+      color: var(--earth-light);
+    }
+
+    /* ── RIGHT PANEL ── */
+    .panel-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px 40px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle corner decoration */
+    .panel-form::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .form-card {
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Mobile logo (hidden on desktop) */
+    .mobile-logo {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
+
+    .form-header {
+      margin-bottom: 36px;
+    }
+
+    .form-header h1 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--earth);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .form-header p {
+      font-size: 0.88rem;
+      color: var(--earth-light);
+    }
+    .form-header p a {
+      color: var(--terracotta);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .form-header p a:hover { text-decoration: underline; }
+
+    /* Divider */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: var(--earth-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+    .or-divider::before, .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--sand-dark);
+    }
+
+    /* Social login buttons */
+    .social-login {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+    .btn-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border: 1.5px solid var(--sand-dark);
+      border-radius: 10px;
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--earth);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+    .btn-social:hover {
+      border-color: var(--terracotta);
+      background: var(--sand);
+      box-shadow: 0 2px 8px rgba(196,98,45,0.1);
+    }
+    .btn-social svg { flex-shrink: 0; }
+
+    /* Form fields */
+    .field-group {
+      margin-bottom: 18px;
+    }
+    .field-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--earth-light);
+      pointer-events: none;
+      display: flex;
+    }
+
+    .field-group input {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      border: 1.5px solid var(--sand-dark);
+      border-radius: 10px;
+      background: var(--sand);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--earth);
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+    }
+    .field-group input::placeholder { color: var(--earth-light); }
+    .field-group input:focus {
+      border-color: var(--terracotta);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(196,98,45,0.1);
+    }
+    .field-group input.error {
+      border-color: #D94F4F;
+      box-shadow: 0 0 0 3px rgba(217,79,79,0.1);
+    }
+
+    /* Password toggle */
+    .pw-toggle {
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--earth-light);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .pw-toggle:hover { color: var(--terracotta); }
+
+    .field-error {
+      font-size: 0.77rem;
+      color: #D94F4F;
+      margin-top: 5px;
+      display: none;
+    }
+    .field-error.show { display: block; }
+
+    /* Remember + forgot */
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .remember-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--earth-mid);
+      cursor: pointer;
+      user-select: none;
+    }
+    .remember-label input[type="checkbox"] {
+      width: 16px; height: 16px;
+      accent-color: var(--terracotta);
+      cursor: pointer;
+    }
+    .forgot-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      text-decoration: none;
+    }
+    .forgot-link:hover { text-decoration: underline; }
+
+    /* Submit button */
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--terracotta);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(196,98,45,0.3);
+    }
+    .btn-submit:hover {
+      background: var(--terracotta-dark);
+      box-shadow: 0 6px 20px rgba(196,98,45,0.4);
+      transform: translateY(-1px);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+    /* Ripple */
+    .btn-submit .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: scale(0);
+      animation: ripple-anim 0.55s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple-anim {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    .btn-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Loading spinner */
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 32px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--earth);
+      color: var(--sand);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .toast.error { background: #C0392B; }
+    .toast.success { background: var(--olive); }
+
+    /* Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.55s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
+    /* Back to site link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--earth-light);
+      text-decoration: none;
+      margin-top: 28px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--terracotta); }
+    .back-link svg { transition: transform 0.2s; }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .login-shell { grid-template-columns: 1fr; }
+      .panel-brand { display: none; }
+      .panel-form {
+        min-height: 100vh;
+        padding: 40px 24px;
+        background: var(--sand);
+      }
+      .mobile-logo { display: flex; }
+      .form-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 36px 28px;
+        box-shadow: 0 8px 40px rgba(74,55,40,0.1);
+        max-width: 460px;
+      }
+    }
+    @media (max-width: 420px) {
+      .social-login { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="page-loader" id="pageLoader">
-    <div><div class="loader-logo">Walela Link</div></div>
-    <div class="loader-bar"></div>
-  </div>
-  <div class="toast" id="toast"></div>
+<div class="toast" id="toast"></div>
 
-  <!-- NAV -->
-  <nav class="nav" id="mainNav">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark"><span></span></div>
-      <div class="nav-logo-text">Walela Link<small>Services</small></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="scope.html">About</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="login.html" class="btn-nav-login">Sign In</a>
-      <a href="signup.html" class="btn-nav-signup">Get Started →</a>
-    </div>
-    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
-  </nav>
-  <div class="nav-mobile" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="scope.html">About Us</a>
-    <a href="contact.html">Contact</a>
-    <div class="mobile-cta">
-      <a href="login.html" class="m-login">Sign In</a>
-      <a href="signup.html" class="m-signup">Get Started</a>
-    </div>
-  </div>
+<main class="login-shell">
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a><span>/</span><span>Contact</span>
+  <!-- ── LEFT: BRAND PANEL ── -->
+  <div class="panel-brand">
+    <div class="grain"></div>
+    <div class="stripe-accent"></div>
+
+    <div class="brand-top fade-up">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-mark"></div>
+        <div class="logo-text">Walela Link <small>Services</small></div>
+      </a>
+    </div>
+
+    <div class="brand-middle fade-up delay-2">
+      <div class="brand-eyebrow">Welcome back</div>
+      <h2 class="brand-headline">
+        Your services,<br>
+        all in one<br>
+        <em>place.</em>
+      </h2>
+      <p class="brand-desc">
+        Access cargo logistics, deliveries, travel planning, equipment hire, and more — from a single dashboard built for East Africa.
+      </p>
+      <div class="service-chips">
+        <span class="chip">🏗️ Cargo</span>
+        <span class="chip">🛵 Delivery</span>
+        <span class="chip">🗺️ Tourism</span>
+        <span class="chip">🎶 Equipment</span>
+        <span class="chip">💻 ICT</span>
+        <span class="chip">👗 Fashion</span>
       </div>
-      <h1>Get in Touch</h1>
-      <p>Have a question, need a quote, or want to discuss your project? We're ready to help — reach out and we'll respond within 24 hours.</p>
+    </div>
+
+    <div class="brand-bottom fade-up delay-4">
+      <p class="brand-tagline">Proudly serving Nairobi · Mombasa · Kisumu</p>
     </div>
   </div>
 
-  <!-- CONTACT MAIN -->
-  <div class="section-full" style="background:var(--sand-light);">
-    <div class="section">
-      <div class="contact-layout fade-up">
+  <!-- ── RIGHT: FORM PANEL ── -->
+  <div class="panel-form">
+    <div class="form-card">
 
-        <!-- Left: Info -->
-        <div>
-          <div class="contact-info">
-            <h2>Let's Start a Conversation</h2>
-            <p>
-              Whether you're a first-time client or a long-standing partner, our team is always glad to hear from you. Tell us what you need and we'll figure out the best way to help.
-            </p>
-          </div>
+      <!-- Mobile logo -->
+      <a href="index.html" class="mobile-logo fade-up">
+        <div class="logo-mark" style="background:var(--terracotta);width:36px;height:36px;border-radius:7px;position:relative;flex-shrink:0;"></div>
+        <div class="logo-text" style="color:var(--earth);">Walela Link <small style="color:var(--earth-light);">Services</small></div>
+      </a>
 
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon-wrap">📍</div>
-              <div>
-                <div class="contact-item-label">Address</div>
-                <div class="contact-item-value">Nairobi Business Park, Ngong Road<br>Nairobi, Kenya</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon-wrap">📞</div>
-              <div>
-                <div class="contact-item-label">Phone</div>
-                <div class="contact-item-value">+254 700 000 000</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon-wrap">✉️</div>
-              <div>
-                <div class="contact-item-label">Email</div>
-                <div class="contact-item-value">info@walelalink.co.ke</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon-wrap">⏰</div>
-              <div>
-                <div class="contact-item-label">Business Hours</div>
-                <div class="contact-item-value">Mon – Fri: 8:00 AM – 6:00 PM<br>Sat: 9:00 AM – 2:00 PM</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon-wrap">💬</div>
-              <div>
-                <div class="contact-item-label">WhatsApp</div>
-                <div class="contact-item-value">+254 700 000 000<br><span style="font-size:0.8rem;color:#9C8A7A;">Available 24/7 for urgent queries</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Quick links -->
-          <div style="margin-top:40px;">
-            <p style="font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px;">Quick Inquiries</p>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;">
-              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Cargo Container Logistics'); return false;">🏗️ Cargo Quote</a>
-              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Delivery Services'); return false;">🛵 Book Delivery</a>
-              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Tourism Planning'); return false;">🗺️ Plan a Trip</a>
-              <a href="#" class="filter-btn" style="font-size:0.8rem;padding:6px 14px;background:var(--white);border:1.5px solid rgba(196,98,45,0.2);border-radius:999px;color:#6B5B4E;transition:all 0.3s;" onclick="prefillService('Equipment Hire'); return false;">🎶 Hire Equipment</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Form -->
-        <div class="contact-form-wrap">
-          <div class="form-title">Send Us a Message</div>
-
-          <form id="contactForm" novalidate>
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" placeholder="John" required />
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000" />
-              </div>
-              <div class="form-group full">
-                <label for="service">Service of Interest *</label>
-                <select id="service" name="service" required>
-                  <option value="">Select a service...</option>
-                  <option value="Cargo Container Logistics">🏗️ Cargo Container Logistics</option>
-                  <option value="Delivery Services">🛵 Delivery Services</option>
-                  <option value="Petty Errands">🧹 Petty Errands</option>
-                  <option value="Tourism Planning">🗺️ Tourism Itinerary Planning</option>
-                  <option value="Equipment Hire">🎶 Entertainment Equipment Hire</option>
-                  <option value="ICT Equipment Sales">💻 ICT Equipment Sales</option>
-                  <option value="Fashion Design">👗 Fashion Design & Accessories</option>
-                  <option value="General Inquiry">❓ General Inquiry</option>
-                </select>
-              </div>
-              <div class="form-group full">
-                <label for="subject">Subject *</label>
-                <input type="text" id="subject" name="subject" placeholder="How can we help you?" required />
-              </div>
-              <div class="form-group full">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" placeholder="Tell us more about your needs, timeline, and any specific requirements..." required></textarea>
-              </div>
-              <div class="form-group full">
-                <label style="display:flex;align-items:flex-start;gap:10px;font-size:0.875rem;font-weight:normal;color:#6B5B4E;cursor:pointer;">
-                  <input type="checkbox" id="consent" name="consent" required style="margin-top:2px;width:16px;height:16px;accent-color:var(--terracotta);flex-shrink:0;" />
-                  I consent to Walela Link Services storing my details to respond to this inquiry. Read our <a href="#" style="color:var(--terracotta);font-weight:600;">Privacy Policy</a>.
-                </label>
-              </div>
-            </div>
-            <button type="submit" class="form-submit" id="submitBtn">
-              Send Message →
-            </button>
-          </form>
-        </div>
-
+      <div class="form-header fade-up delay-1">
+        <h1>Sign in</h1>
+        <p>Don't have an account? <a href="signup.html">Create one free →</a></p>
       </div>
-    </div>
-  </div>
 
-  <!-- FAQ -->
-  <div class="section">
-    <div class="section-header fade-up">
-      <span class="section-eyebrow">FAQs</span>
-      <h2 class="section-title">Common Questions</h2>
-    </div>
-
-    <div style="max-width:760px;margin:0 auto;" class="fade-up">
-      <div id="faqList"></div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-band">
-    <div class="cta-inner">
-      <div class="cta-text">
-        <h2>Ready to Get Started?</h2>
-        <p>Create a free account and access all our services in one place.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="signup.html" class="btn-cta-white">Create Free Account</a>
-        <a href="services.html" class="btn-cta-outline">Browse Services →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <a href="index.html" class="nav-logo">
-          <div class="nav-logo-mark"><span></span></div>
-          <div class="nav-logo-text" style="color:var(--sand-light);">Walela Link<small>Services</small></div>
-        </a>
-        <p class="footer-brand-desc">Your all-in-one multi-service logistics and lifestyle platform, proudly serving East Africa.</p>
-        <div class="footer-socials">
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">🐦</a>
-          <a href="#" class="social-btn">📸</a>
-          <a href="#" class="social-btn">💬</a>
-        </div>
-      </div>
-      <div class="footer-col"><h4>Services</h4><ul>
-        <li><a href="services.html#cargo">Cargo Logistics</a></li>
-        <li><a href="services.html#delivery">Delivery</a></li>
-        <li><a href="services.html#errands">Petty Errands</a></li>
-        <li><a href="services.html#tourism">Tourism Planning</a></li>
-        <li><a href="services.html#equipment">Equipment Hire</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Company</h4><ul>
-        <li><a href="scope.html">About Us</a></li>
-        <li><a href="scope.html#vision">Our Vision</a></li>
-        <li><a href="scope.html#values">Our Values</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Account</h4><ul>
-        <li><a href="login.html">Sign In</a></li>
-        <li><a href="signup.html">Register</a></li>
-        <li><a href="#">My Orders</a></li>
-        <li><a href="#">Support</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <p>© <script>document.write(new Date().getFullYear())</script> Walela Link Services. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-  <script>
-    // Prefill service dropdown
-    function prefillService(value) {
-      const sel = document.getElementById('service');
-      if (sel) {
-        for (let i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].value === value) {
-            sel.selectedIndex = i;
-            break;
-          }
-        }
-        document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-
-    // Contact form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
-      setTimeout(() => {
-        btn.textContent = '✓ Message Sent!';
-        btn.style.background = 'var(--olive)';
-        showToast('Thank you! We\'ll get back to you within 24 hours. 🙌');
-        setTimeout(() => {
-          this.reset();
-          btn.textContent = 'Send Message →';
-          btn.disabled = false;
-          btn.style.opacity = '';
-          btn.style.background = '';
-        }, 3500);
-      }, 1400);
-    });
-
-    // FAQ data
-    const faqs = [
-      {
-        q: 'How quickly do you respond to inquiries?',
-        a: 'We aim to respond to all messages within 2–4 business hours. For urgent matters, we recommend reaching out via WhatsApp for the fastest response.'
-      },
-      {
-        q: 'Do you provide services outside Nairobi?',
-        a: 'Yes! We currently serve Nairobi, Mombasa, and Kisumu. We also handle cargo logistics nationally and coordinate with partners for regional East African coverage.'
-      },
-      {
-        q: 'How are your prices structured?',
-        a: 'Pricing varies by service type, volume, distance, and complexity. We provide transparent, itemised quotes before you commit to anything. No hidden fees.'
-      },
-      {
-        q: 'Can I track my delivery or order in real time?',
-        a: 'Yes. Once your order is confirmed, you\'ll receive a tracking link via SMS and email so you can monitor progress in real time.'
-      },
-      {
-        q: 'How do I pay for services?',
-        a: 'We accept M-Pesa, bank transfers, and cash. For business accounts, we offer invoicing with net payment terms upon approval.'
-      }
-    ];
-
-    const faqList = document.getElementById('faqList');
-    faqs.forEach((faq, i) => {
-      const item = document.createElement('div');
-      item.style.cssText = 'border:1px solid rgba(196,98,45,0.12);border-radius:12px;margin-bottom:12px;overflow:hidden;';
-      item.innerHTML = `
-        <button onclick="toggleFaq(${i})" style="width:100%;text-align:left;padding:20px 24px;background:var(--white);display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:600;font-size:0.95rem;color:var(--earth-dark);cursor:pointer;border:none;font-family:var(--font-body);transition:background 0.2s;" id="faq-btn-${i}">
-          ${faq.q}
-          <span id="faq-icon-${i}" style="font-size:1.2rem;flex-shrink:0;color:var(--terracotta);transition:transform 0.3s;">+</span>
+      <!-- Social login -->
+      <div class="social-login fade-up delay-2">
+        <button class="btn-social" type="button" onclick="socialLogin('Google')">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+            <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
+            <path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+            <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+          </svg>
+          Google
         </button>
-        <div id="faq-body-${i}" style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1);">
-          <div style="padding:0 24px 20px;font-size:0.9rem;color:#6B5B4E;line-height:1.75;">${faq.a}</div>
-        </div>
-      `;
-      faqList.appendChild(item);
-    });
+        <button class="btn-social" type="button" onclick="socialLogin('Facebook')">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M18 9c0-4.971-4.029-9-9-9S0 4.029 0 9c0 4.493 3.292 8.217 7.594 8.898V11.61H5.31V9h2.284V7.013c0-2.255 1.343-3.503 3.402-3.503.985 0 2.016.176 2.016.176v2.215h-1.136c-1.118 0-1.468.694-1.468 1.405V9h2.496l-.399 2.61h-2.097v6.288C14.708 17.217 18 13.493 18 9z" fill="#1877F2"/>
+          </svg>
+          Facebook
+        </button>
+      </div>
 
-    function toggleFaq(i) {
-      const body = document.getElementById(`faq-body-${i}`);
-      const icon = document.getElementById(`faq-icon-${i}`);
-      const isOpen = body.style.maxHeight !== '0px' && body.style.maxHeight !== '';
-      // close all
-      faqs.forEach((_, j) => {
-        document.getElementById(`faq-body-${j}`).style.maxHeight = '0';
-        document.getElementById(`faq-icon-${j}`).textContent = '+';
-        document.getElementById(`faq-icon-${j}`).style.transform = 'rotate(0deg)';
-      });
-      if (!isOpen) {
-        body.style.maxHeight = body.scrollHeight + 200 + 'px';
-        icon.textContent = '−';
-        icon.style.transform = 'rotate(0deg)';
-      }
+      <div class="or-divider fade-up delay-2">or sign in with email</div>
+
+      <!-- Login form -->
+      <form id="loginForm" novalidate class="fade-up delay-3">
+
+        <!-- Email -->
+        <div class="field-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrap">
+            <span class="input-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+              required
+            />
+          </div>
+          <div class="field-error" id="emailError">Please enter a valid email address.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="field-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            </span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="pw-toggle" id="pwToggle" aria-label="Toggle password visibility" onclick="togglePassword()">
+              <svg id="eyeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="field-error" id="passwordError">Password must be at least 6 characters.</div>
+        </div>
+
+        <!-- Remember / Forgot -->
+        <div class="form-row">
+          <label class="remember-label">
+            <input type="checkbox" id="remember" name="remember" />
+            Remember me
+          </label>
+          <a href="forgot-password.html" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-inner" id="btnContent">
+            Sign In
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+          <div class="spinner" id="spinner"></div>
+        </button>
+
+      </form>
+
+      <div class="fade-up delay-4" style="text-align:center;">
+        <a href="index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to Walela Link
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // ── Toast helper ──
+  function showToast(msg, type = '') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast' + (type ? ' ' + type : '');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3800);
+  }
+
+  // ── Password toggle ──
+  function togglePassword() {
+    const input = document.getElementById('password');
+    const icon = document.getElementById('eyeIcon');
+    const show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+    icon.innerHTML = show
+      ? '<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>'
+      : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+
+  // ── Validation ──
+  function validateEmail(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+  }
+
+  function setFieldError(fieldId, errorId, show) {
+    const input = document.getElementById(fieldId);
+    const error = document.getElementById(errorId);
+    if (show) {
+      input.classList.add('error');
+      error.classList.add('show');
+    } else {
+      input.classList.remove('error');
+      error.classList.remove('show');
     }
-  </script>
+  }
+
+  // Clear error on input
+  document.getElementById('email').addEventListener('input', function() {
+    if (validateEmail(this.value)) setFieldError('email', 'emailError', false);
+  });
+  document.getElementById('password').addEventListener('input', function() {
+    if (this.value.length >= 6) setFieldError('password', 'passwordError', false);
+  });
+
+  // ── Ripple effect ──
+  document.getElementById('submitBtn').addEventListener('click', function(e) {
+    if (this.disabled) return;
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size/2}px;top:${e.clientY - rect.top - size/2}px`;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+
+  // ── Form submit ──
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    let valid = true;
+
+    if (!validateEmail(email)) {
+      setFieldError('email', 'emailError', true);
+      valid = false;
+    }
+    if (password.length < 6) {
+      setFieldError('password', 'passwordError', true);
+      valid = false;
+    }
+    if (!valid) return;
+
+    // Show loading state
+    const btn = document.getElementById('submitBtn');
+    const btnContent = document.getElementById('btnContent');
+    const spinner = document.getElementById('spinner');
+    btn.disabled = true;
+    btnContent.style.display = 'none';
+    spinner.style.display = 'block';
+
+    // Simulate auth — replace with real API call
+    setTimeout(() => {
+      spinner.style.display = 'none';
+      btnContent.style.display = 'flex';
+      btn.disabled = false;
+
+      // Demo: show success (in production, redirect on success or show error)
+      showToast('✓ Signed in successfully! Redirecting…', 'success');
+      setTimeout(() => {
+        // window.location.href = 'dashboard.html';
+      }, 1800);
+    }, 1600);
+  });
+
+  // ── Social login placeholder ──
+  function socialLogin(provider) {
+    showToast(`Connecting with ${provider}…`);
+  }
+</script>
+
 </body>
 </html>

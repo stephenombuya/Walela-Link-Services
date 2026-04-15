@@ -5,271 +5,638 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Create a free Walela Link Services account — access cargo, delivery, errands, tourism, and more in one place." />
   <title>Create Account | Walela Link Services</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23C4622D'/><rect x='8' y='8' width='16' height='16' rx='2' fill='white'/></svg>" />
+
   <style>
-    .password-strength {
-      height: 4px;
-      border-radius: 2px;
-      background: rgba(196,98,45,0.12);
-      margin-top: 8px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terracotta: #C4622D;
+      --terracotta-dark: #A3501E;
+      --terracotta-light: #E8886A;
+      --sand: #F5EDE3;
+      --sand-dark: #EAD9C8;
+      --earth: #4A3728;
+      --earth-mid: #6B5B4E;
+      --earth-light: #9C8A7A;
+      --white: #FFFFFF;
+      --olive: #6B7C4E;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html, body { font-family: var(--font-body); background: var(--sand); color: var(--earth); }
+
+    /* ── LAYOUT ── */
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ── LEFT PANEL ── */
+    .panel-brand {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: var(--earth);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px 52px;
+      color: var(--sand);
+    }
+    .panel-brand::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .panel-brand::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .grain {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; opacity: 0.5;
     }
 
-    .password-strength-bar {
-      height: 100%;
-      width: 0;
-      border-radius: 2px;
-      transition: width 0.4s ease, background 0.4s ease;
+    .brand-top { position: relative; z-index: 2; }
+
+    .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-mark {
+      width: 40px; height: 40px;
+      background: var(--terracotta);
+      border-radius: 8px; position: relative; flex-shrink: 0;
+    }
+    .logo-mark::after {
+      content: ''; position: absolute; inset: 7px;
+      background: rgba(255,255,255,0.25); border-radius: 3px;
+    }
+    .logo-text { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--sand); line-height: 1.1; }
+    .logo-text small { display: block; font-family: var(--font-body); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth-light); }
+
+    .brand-mid { position: relative; z-index: 2; }
+    .brand-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--terracotta-light); margin-bottom: 18px;
+    }
+    .brand-eyebrow::before { content: ''; width: 24px; height: 1.5px; background: var(--terracotta-light); }
+    .brand-headline { font-family: var(--font-display); font-size: clamp(1.8rem, 2.5vw, 2.6rem); font-weight: 700; color: var(--sand); line-height: 1.2; margin-bottom: 18px; }
+    .brand-headline em { font-style: italic; color: var(--terracotta-light); }
+    .brand-desc { font-size: 0.88rem; color: var(--earth-light); line-height: 1.8; max-width: 340px; margin-bottom: 32px; }
+
+    .feature-list { display: flex; flex-direction: column; gap: 18px; }
+    .feature-item { display: flex; align-items: flex-start; gap: 14px; }
+    .feature-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(196,98,45,0.2); border: 1px solid rgba(196,98,45,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .feature-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--sand); margin-bottom: 2px; }
+    .feature-text span { font-size: 0.78rem; color: var(--earth-light); line-height: 1.5; }
+
+    .brand-bottom { position: relative; z-index: 2; font-size: 0.78rem; color: var(--earth-light); }
+
+    /* ── RIGHT PANEL (scrollable) ── */
+    .panel-form {
+      background: var(--white);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 52px 40px;
+      position: relative;
+    }
+    .panel-form::before {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,0.05) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .strength-label {
-      font-size: 0.75rem;
-      color: #9C8A7A;
-      margin-top: 4px;
-      text-align: right;
+    .form-card { width: 100%; max-width: 480px; position: relative; z-index: 1; }
+
+    .mobile-logo { display: none; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 32px; }
+
+    .form-head { margin-bottom: 28px; }
+    .form-head h1 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--earth); line-height: 1.2; margin-bottom: 6px; }
+    .form-head p { font-size: 0.87rem; color: var(--earth-light); }
+    .form-head p a { color: var(--terracotta); font-weight: 600; text-decoration: none; }
+    .form-head p a:hover { text-decoration: underline; }
+
+    /* Steps indicator */
+    .steps { display: flex; align-items: center; gap: 0; margin-bottom: 32px; }
+    .step-item { display: flex; align-items: center; gap: 8px; }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700;
+      background: var(--sand-dark); color: var(--earth-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    .step-num.active { background: var(--terracotta); color: white; }
+    .step-num.done { background: var(--olive); color: white; }
+    .step-label { font-size: 0.78rem; font-weight: 500; color: var(--earth-light); }
+    .step-label.active { color: var(--terracotta); font-weight: 600; }
+    .step-line { flex: 1; height: 1.5px; background: var(--sand-dark); margin: 0 10px; }
+
+    /* Social */
+    .social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .btn-social {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px; border: 1.5px solid var(--sand-dark); border-radius: 10px;
+      background: var(--white); font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+      color: var(--earth); cursor: pointer; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+    .btn-social:hover { border-color: var(--terracotta); background: var(--sand); box-shadow: 0 2px 8px rgba(196,98,45,0.1); }
+
+    .or-div { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: var(--earth-light); font-size: 0.78rem; letter-spacing: 0.05em; }
+    .or-div::before, .or-div::after { content: ''; flex: 1; height: 1px; background: var(--sand-dark); }
+
+    /* Form fields */
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--earth); margin-bottom: 5px; }
+    .input-wrap { position: relative; }
+    .input-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--earth-light); pointer-events: none; display: flex; }
+    .field input, .field select {
+      width: 100%; padding: 11px 13px 11px 40px;
+      border: 1.5px solid var(--sand-dark); border-radius: 10px;
+      background: var(--sand); font-family: var(--font-body); font-size: 0.88rem; color: var(--earth);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .field select { padding-left: 13px; cursor: pointer; }
+    .field input::placeholder { color: var(--earth-light); }
+    .field input:focus, .field select:focus {
+      border-color: var(--terracotta); background: var(--white);
+      box-shadow: 0 0 0 3px rgba(196,98,45,0.1);
+    }
+    .field input.err { border-color: #D94F4F; box-shadow: 0 0 0 3px rgba(217,79,79,0.1); }
+    .field-err { font-size: 0.76rem; color: #D94F4F; margin-top: 4px; display: none; }
+    .field-err.show { display: block; }
+
+    /* Password strength */
+    .pw-toggle {
+      position: absolute; right: 13px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: var(--earth-light); padding: 2px; display: flex;
+      transition: color 0.2s;
+    }
+    .pw-toggle:hover { color: var(--terracotta); }
+    .strength-track { height: 4px; border-radius: 2px; background: var(--sand-dark); margin-top: 7px; overflow: hidden; }
+    .strength-bar { height: 100%; width: 0; border-radius: 2px; transition: width 0.4s ease, background 0.4s ease; }
+    .strength-text { font-size: 0.75rem; color: var(--earth-light); margin-top: 4px; text-align: right; }
+
+    /* Checkboxes */
+    .check-field { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .check-field input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--terracotta); flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+    .check-field label { font-size: 0.83rem; color: var(--earth-mid); line-height: 1.5; cursor: pointer; }
+    .check-field label a { color: var(--terracotta); font-weight: 600; text-decoration: none; }
+    .check-field label a:hover { text-decoration: underline; }
+
+    /* Submit */
+    .btn-submit {
+      width: 100%; padding: 14px;
+      background: var(--terracotta); color: white; border: none; border-radius: 10px;
+      font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(196,98,45,0.3);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit:hover { background: var(--terracotta-dark); box-shadow: 0 6px 20px rgba(196,98,45,0.4); transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+    .spinner { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.3); transform: scale(0); animation: ripple-anim 0.55s linear; pointer-events: none; }
+    @keyframes ripple-anim { to { transform: scale(4); opacity: 0; } }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 32px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--earth); color: var(--sand);
+      padding: 12px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18); z-index: 9999;
+      opacity: 0; transition: opacity 0.3s, transform 0.3s; white-space: nowrap; pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.success { background: var(--olive); }
+    .toast.error { background: #C0392B; }
+
+    /* Animations */
+    .fade-up { opacity: 0; transform: translateY(18px); animation: fadeUp 0.5s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--earth-light); text-decoration: none; margin-top: 24px; transition: color 0.2s; }
+    .back-link:hover { color: var(--terracotta); }
+    .back-link svg { transition: transform 0.2s; }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .shell { grid-template-columns: 1fr; }
+      .panel-brand { display: none; }
+      .panel-form { background: var(--sand); padding: 40px 20px; }
+      .mobile-logo { display: flex; }
+      .form-card { background: white; border-radius: 20px; padding: 32px 24px; box-shadow: 0 8px 40px rgba(74,55,40,0.1); }
+    }
+    @media (max-width: 480px) {
+      .field-row { grid-template-columns: 1fr; }
+      .social-row { grid-template-columns: 1fr; }
+      .form-card { padding: 24px 18px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="page-loader" id="pageLoader">
-    <div><div class="loader-logo">Walela Link</div></div>
-    <div class="loader-bar"></div>
-  </div>
-  <div class="toast" id="toast"></div>
+<div class="toast" id="toast"></div>
 
-  <div class="auth-page">
+<main class="shell">
 
-    <!-- LEFT: VISUAL PANEL -->
-    <div class="auth-visual">
-      <div class="auth-visual-bg"></div>
-      <div class="auth-visual-content">
-        <div class="auth-visual-logo">
-          <div class="auth-logo-mark"><span></span></div>
-          <div class="auth-logo-name">Walela Link</div>
+  <!-- LEFT BRAND PANEL -->
+  <div class="panel-brand">
+    <div class="grain"></div>
+
+    <div class="brand-top fade-up">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-mark"></div>
+        <div class="logo-text">Walela Link <small>Services</small></div>
+      </a>
+    </div>
+
+    <div class="brand-mid fade-up d2">
+      <div class="brand-eyebrow">Join us today</div>
+      <h2 class="brand-headline">One account.<br><em>Endless</em><br>possibilities.</h2>
+      <p class="brand-desc">Trusted by hundreds of clients across East Africa for logistics, deliveries, travel, and beyond.</p>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-text"><strong>Instant Access</strong><span>Book any service within minutes of signing up</span></div>
         </div>
-        <h2>Your one account for everything.</h2>
-        <p>Join hundreds of clients who trust Walela Link Services for logistics, travel, errands, events, and more across East Africa.</p>
-        <div class="auth-features">
-          <div class="auth-feature">
-            <div class="auth-feature-icon">🚀</div>
-            <div class="auth-feature-text">
-              <strong>Instant Access</strong>
-              <span>Book any service within minutes of signing up</span>
-            </div>
-          </div>
-          <div class="auth-feature">
-            <div class="auth-feature-icon">🎯</div>
-            <div class="auth-feature-text">
-              <strong>Personalised Dashboard</strong>
-              <span>Track orders, history, and preferences in one place</span>
-            </div>
-          </div>
-          <div class="auth-feature">
-            <div class="auth-feature-icon">💰</div>
-            <div class="auth-feature-text">
-              <strong>Exclusive Member Rates</strong>
-              <span>Registered users get priority pricing and discounts</span>
-            </div>
-          </div>
-          <div class="auth-feature">
-            <div class="auth-feature-icon">🛡️</div>
-            <div class="auth-feature-text">
-              <strong>Safe &amp; Secure</strong>
-              <span>Your data is encrypted and never shared without consent</span>
-            </div>
-          </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-text"><strong>Personalised Dashboard</strong><span>Track orders, history, and preferences</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💰</div>
+          <div class="feature-text"><strong>Exclusive Member Rates</strong><span>Priority pricing and member-only discounts</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-text"><strong>Safe &amp; Secure</strong><span>Encrypted data, never shared without consent</span></div>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT: FORM PANEL -->
-    <div class="auth-form-side">
-      <div class="auth-form-container">
-        <div class="auth-form-header">
-          <div style="display:none;" id="mobileLogo">
-            <a href="index.html" class="nav-logo" style="margin-bottom:28px;display:inline-flex;">
-              <div class="nav-logo-mark"><span></span></div>
-              <div class="nav-logo-text">Walela Link<small>Services</small></div>
-            </a>
-          </div>
-          <h1>Create Account</h1>
-          <p>Already have an account? <a href="login.html">Sign in here</a></p>
+    <div class="brand-bottom fade-up d4">Proudly serving Nairobi · Mombasa · Kisumu</div>
+  </div>
+
+  <!-- RIGHT FORM PANEL -->
+  <div class="panel-form">
+    <div class="form-card">
+
+      <!-- Mobile logo -->
+      <a href="index.html" class="mobile-logo fade-up">
+        <div class="logo-mark" style="background:var(--terracotta);width:36px;height:36px;border-radius:7px;position:relative;flex-shrink:0;"></div>
+        <div class="logo-text" style="color:var(--earth);">Walela Link<small style="color:var(--earth-light);">Services</small></div>
+      </a>
+
+      <div class="form-head fade-up d1">
+        <h1>Create Account</h1>
+        <p>Already have one? <a href="login.html">Sign in here →</a></p>
+      </div>
+
+      <!-- Step indicators -->
+      <div class="steps fade-up d1">
+        <div class="step-item">
+          <div class="step-num active" id="step1num">1</div>
+          <span class="step-label active" id="step1lbl">Your Details</span>
         </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+          <div class="step-num" id="step2num">2</div>
+          <span class="step-label" id="step2lbl">Security</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+          <div class="step-num" id="step3num">3</div>
+          <span class="step-label" id="step3lbl">Confirm</span>
+        </div>
+      </div>
 
-        <form class="auth-form" id="signupForm" novalidate>
+      <!-- Social login -->
+      <div class="social-row fade-up d2">
+        <button class="btn-social" type="button" onclick="socialSignup('Google')">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+            <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908C16.658 14.215 17.64 11.907 17.64 9.2z" fill="#4285F4"/>
+            <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
+            <path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+            <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+          </svg>
+          Continue with Google
+        </button>
+        <button class="btn-social" type="button" onclick="socialSignup('Facebook')">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M18 9c0-4.971-4.029-9-9-9S0 4.029 0 9c0 4.493 3.292 8.217 7.594 8.898V11.61H5.31V9h2.284V7.013c0-2.255 1.343-3.503 3.402-3.503.985 0 2.016.176 2.016.176v2.215h-1.136c-1.118 0-1.468.694-1.468 1.405V9h2.496l-.399 2.61h-2.097v6.288C14.708 17.217 18 13.493 18 9z" fill="#1877F2"/></svg>
+          Continue with Facebook
+        </button>
+      </div>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <div class="form-group">
-              <label for="signupFirst">First Name *</label>
+      <div class="or-div fade-up d2">or register with email</div>
+
+      <form id="signupForm" novalidate class="fade-up d3">
+
+        <!-- Step 1: Personal info -->
+        <div id="step1">
+          <div class="field-row">
+            <div class="field">
+              <label for="firstName">First Name *</label>
               <div class="input-wrap">
-                <span class="input-icon">👤</span>
-                <input type="text" id="signupFirst" name="firstName" placeholder="First" required autocomplete="given-name" />
+                <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                <input type="text" id="firstName" name="firstName" placeholder="First" autocomplete="given-name" required />
               </div>
+              <div class="field-err" id="firstErr">Please enter your first name.</div>
             </div>
-            <div class="form-group">
-              <label for="signupLast">Last Name *</label>
-              <input type="text" id="signupLast" name="lastName" placeholder="Last" required autocomplete="family-name" style="font-family:var(--font-body);font-size:0.95rem;color:var(--earth-dark);background:var(--sand-light);border:1.5px solid rgba(196,98,45,0.15);border-radius:var(--radius-md);padding:12px 16px;width:100%;outline:none;transition:all 0.3s;" onfocus="this.style.borderColor='var(--terracotta)';this.style.boxShadow='0 0 0 3px rgba(196,98,45,0.12)';this.style.background='white'" onblur="this.style.borderColor='rgba(196,98,45,0.15)';this.style.boxShadow='none';this.style.background='var(--sand-light)'" />
+            <div class="field">
+              <label for="lastName">Last Name *</label>
+              <div class="input-wrap">
+                <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                <input type="text" id="lastName" name="lastName" placeholder="Last" autocomplete="family-name" required />
+              </div>
+              <div class="field-err" id="lastErr">Please enter your last name.</div>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="signupEmail">Email Address *</label>
+          <div class="field">
+            <label for="email">Email Address *</label>
             <div class="input-wrap">
-              <span class="input-icon">✉️</span>
-              <input type="email" id="signupEmail" name="email" placeholder="you@example.com" required autocomplete="email" />
+              <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
             </div>
+            <div class="field-err" id="emailErr">Please enter a valid email address.</div>
           </div>
 
-          <div class="form-group">
-            <label for="signupPhone">Phone Number *</label>
+          <div class="field">
+            <label for="phone">Phone Number *</label>
             <div class="input-wrap">
-              <span class="input-icon">📞</span>
-              <input type="tel" id="signupPhone" name="phone" placeholder="+254 700 000 000" required autocomplete="tel" />
+              <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.01 1 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></span>
+              <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000" autocomplete="tel" required />
             </div>
+            <div class="field-err" id="phoneErr">Please enter a valid phone number.</div>
           </div>
 
-          <div class="form-group">
-            <label for="signupPassword">Password *</label>
-            <div class="input-wrap">
-              <span class="input-icon">🔒</span>
-              <input type="password" id="signupPassword" name="password" placeholder="Create a strong password" required autocomplete="new-password" oninput="updateStrength(this.value)" />
-            </div>
-            <div class="password-strength">
-              <div class="password-strength-bar" id="strengthBar"></div>
-            </div>
-            <div class="strength-label" id="strengthLabel">Enter a password</div>
-          </div>
-
-          <div class="form-group">
-            <label for="signupConfirm">Confirm Password *</label>
-            <div class="input-wrap">
-              <span class="input-icon">🔒</span>
-              <input type="password" id="signupConfirm" name="confirmPassword" placeholder="Repeat your password" required autocomplete="new-password" />
-            </div>
-          </div>
-
-          <div class="form-group">
+          <div class="field">
             <label for="accountType">Account Type</label>
-            <select id="accountType" name="accountType" style="font-family:var(--font-body);font-size:0.95rem;color:var(--earth-dark);background:var(--sand-light);border:1.5px solid rgba(196,98,45,0.15);border-radius:var(--radius-md);padding:12px 16px;width:100%;outline:none;transition:all 0.3s;" onfocus="this.style.borderColor='var(--terracotta)';this.style.boxShadow='0 0 0 3px rgba(196,98,45,0.12)'" onblur="this.style.borderColor='rgba(196,98,45,0.15)';this.style.boxShadow='none'">
+            <select id="accountType" name="accountType">
               <option value="individual">👤 Individual / Personal</option>
               <option value="business">🏢 Business / Company</option>
               <option value="agency">🤝 Agency / Reseller</option>
             </select>
           </div>
 
-          <div class="form-group">
-            <label class="checkbox-group">
-              <input type="checkbox" id="termsCheck" required />
-              I agree to the <a href="#" style="color:var(--terracotta);font-weight:600;">Terms of Service</a> and <a href="#" style="color:var(--terracotta);font-weight:600;">Privacy Policy</a>
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label class="checkbox-group">
-              <input type="checkbox" name="marketing" />
-              Send me updates about services, promotions, and tips (optional)
-            </label>
-          </div>
-
-          <button type="submit" class="form-submit" id="signupBtn">Create Account →</button>
-        </form>
-
-        <div class="divider"><span>or sign up with</span></div>
-
-        <div style="display:flex;gap:12px;margin-bottom:24px;">
-          <button onclick="showToast('Google sign-up coming soon!')" style="flex:1;padding:12px;border:1.5px solid rgba(196,98,45,0.2);border-radius:8px;background:var(--white);font-size:0.875rem;font-weight:600;color:var(--earth-dark);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--terracotta)'" onmouseout="this.style.borderColor='rgba(196,98,45,0.2)'">
-            🌐 Google
-          </button>
-          <button onclick="showToast('Apple sign-up coming soon!')" style="flex:1;padding:12px;border:1.5px solid rgba(196,98,45,0.2);border-radius:8px;background:var(--white);font-size:0.875rem;font-weight:600;color:var(--earth-dark);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--terracotta)'" onmouseout="this.style.borderColor='rgba(196,98,45,0.2)'">
-            🍎 Apple
+          <button type="button" class="btn-submit" onclick="goStep2()">
+            <span id="nextBtnText">Continue →</span>
           </button>
         </div>
 
-        <div class="auth-form-footer">
-          Already have an account? <a href="login.html">Sign in here</a>
+        <!-- Step 2: Password -->
+        <div id="step2" style="display:none;">
+          <div class="field">
+            <label for="password">Create Password *</label>
+            <div class="input-wrap">
+              <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+              <input type="password" id="password" name="password" placeholder="Create a strong password" autocomplete="new-password" required oninput="updateStrength(this.value)" />
+              <button type="button" class="pw-toggle" onclick="togglePw('password','eyeIcon1')">
+                <svg id="eyeIcon1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="strength-track"><div class="strength-bar" id="strengthBar"></div></div>
+            <div class="strength-text" id="strengthText">Enter a password</div>
+            <div class="field-err" id="pwErr">Password must be at least 8 characters.</div>
+          </div>
+
+          <div class="field">
+            <label for="confirm">Confirm Password *</label>
+            <div class="input-wrap">
+              <span class="input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+              <input type="password" id="confirm" name="confirm" placeholder="Repeat your password" autocomplete="new-password" required />
+              <button type="button" class="pw-toggle" onclick="togglePw('confirm','eyeIcon2')">
+                <svg id="eyeIcon2" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="field-err" id="confirmErr">Passwords do not match.</div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:4px;">
+            <button type="button" class="btn-submit" style="background:var(--sand-dark);color:var(--earth);box-shadow:none;flex:0 0 auto;width:80px;" onclick="goStep1()">← Back</button>
+            <button type="button" class="btn-submit" style="flex:1;" onclick="goStep3()">Continue →</button>
+          </div>
         </div>
 
-        <div style="margin-top:24px;text-align:center;">
-          <a href="index.html" style="font-size:0.82rem;color:#9C8A7A;display:inline-flex;align-items:center;gap:6px;transition:color 0.3s;" onmouseover="this.style.color='var(--terracotta)'" onmouseout="this.style.color='#9C8A7A'">
-            ← Back to Homepage
-          </a>
+        <!-- Step 3: Confirm & Submit -->
+        <div id="step3" style="display:none;">
+          <!-- Summary card -->
+          <div style="background:var(--sand);border-radius:12px;padding:16px 20px;margin-bottom:20px;font-size:0.85rem;">
+            <p style="font-weight:700;color:var(--earth);margin-bottom:10px;">Account Summary</p>
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:4px 12px;color:var(--earth-mid);">
+              <span style="color:var(--earth-light);font-size:0.8rem;">Name</span><span id="summaryName">—</span>
+              <span style="color:var(--earth-light);font-size:0.8rem;">Email</span><span id="summaryEmail">—</span>
+              <span style="color:var(--earth-light);font-size:0.8rem;">Phone</span><span id="summaryPhone">—</span>
+              <span style="color:var(--earth-light);font-size:0.8rem;">Type</span><span id="summaryType">—</span>
+            </div>
+          </div>
+
+          <div class="check-field">
+            <input type="checkbox" id="terms" name="terms" required />
+            <label for="terms">I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a></label>
+          </div>
+
+          <div class="check-field">
+            <input type="checkbox" id="marketing" name="marketing" />
+            <label for="marketing">Send me updates about services, promotions, and tips (optional)</label>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:8px;">
+            <button type="button" class="btn-submit" style="background:var(--sand-dark);color:var(--earth);box-shadow:none;flex:0 0 auto;width:80px;" onclick="goStep2Back()">← Back</button>
+            <button type="submit" class="btn-submit" id="submitBtn" style="flex:1;">
+              <span id="submitTxt">Create Account →</span>
+              <div class="spinner" id="spinner"></div>
+            </button>
+          </div>
         </div>
 
+      </form>
+
+      <div class="fade-up d4" style="text-align:center;">
+        <a href="index.html" class="back-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to Walela Link
+        </a>
       </div>
     </div>
   </div>
+</main>
 
-  <script src="script.js"></script>
-  <script>
-    // Show mobile logo
-    function checkMobile() {
-      const logo = document.getElementById('mobileLogo');
-      if (window.innerWidth <= 1024) logo.style.display = 'block';
-      else logo.style.display = 'none';
+<div class="toast" id="toast"></div>
+
+<script>
+  // Toast
+  function showToast(msg, type='') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast' + (type ? ' '+type : '');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 3800);
+  }
+
+  // Password visibility
+  function togglePw(inputId, iconId) {
+    const inp = document.getElementById(inputId);
+    const ico = document.getElementById(iconId);
+    const show = inp.type === 'password';
+    inp.type = show ? 'text' : 'password';
+    ico.innerHTML = show
+      ? '<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>'
+      : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+
+  // Strength meter
+  function updateStrength(val) {
+    const bar = document.getElementById('strengthBar');
+    const txt = document.getElementById('strengthText');
+    let s = 0;
+    if (val.length >= 8) s++;
+    if (/[A-Z]/.test(val)) s++;
+    if (/[0-9]/.test(val)) s++;
+    if (/[^A-Za-z0-9]/.test(val)) s++;
+    const levels = [
+      {w:'0%',c:'transparent',t:'Enter a password'},
+      {w:'25%',c:'#E53E3E',t:'Weak'},
+      {w:'50%',c:'#DD6B20',t:'Fair'},
+      {w:'75%',c:'#D4A843',t:'Good'},
+      {w:'100%',c:'#5C6B3A',t:'Strong ✓'}
+    ];
+    const l = val.length === 0 ? 0 : s;
+    bar.style.width = levels[l].w;
+    bar.style.background = levels[l].c;
+    txt.textContent = levels[l].t;
+    txt.style.color = l === 0 ? 'var(--earth-light)' : levels[l].c;
+  }
+
+  // Field validation helper
+  function setErr(inputId, errId, show) {
+    const inp = document.getElementById(inputId);
+    const err = document.getElementById(errId);
+    if (show) { inp && inp.classList.add('err'); err && err.classList.add('show'); }
+    else { inp && inp.classList.remove('err'); err && err.classList.remove('show'); }
+  }
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+  // Step transitions
+  function setStep(n) {
+    for (let i=1;i<=3;i++) {
+      document.getElementById('step'+i).style.display = i===n ? 'block' : 'none';
+      const num = document.getElementById('step'+i+'num');
+      const lbl = document.getElementById('step'+i+'lbl');
+      if (i < n) { num.className='step-num done'; num.textContent='✓'; lbl.className='step-label'; }
+      else if (i === n) { num.className='step-num active'; num.textContent=i; lbl.className='step-label active'; }
+      else { num.className='step-num'; num.textContent=i; lbl.className='step-label'; }
     }
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+  }
 
-    // Password strength
-    function updateStrength(val) {
-      const bar = document.getElementById('strengthBar');
-      const label = document.getElementById('strengthLabel');
-      let score = 0;
-      if (val.length >= 8) score++;
-      if (/[A-Z]/.test(val)) score++;
-      if (/[0-9]/.test(val)) score++;
-      if (/[^A-Za-z0-9]/.test(val)) score++;
-
-      const levels = [
-        { width: '0%',   color: 'transparent', text: 'Enter a password' },
-        { width: '25%',  color: '#E53E3E',      text: 'Weak' },
-        { width: '50%',  color: '#DD6B20',      text: 'Fair' },
-        { width: '75%',  color: '#D4A843',      text: 'Good' },
-        { width: '100%', color: '#5C6B3A',      text: 'Strong ✓' }
-      ];
-
-      const level = val.length === 0 ? 0 : score;
-      bar.style.width = levels[level].width;
-      bar.style.background = levels[level].color;
-      label.textContent = levels[level].text;
-      label.style.color = levels[level].color === 'transparent' ? '#9C8A7A' : levels[level].color;
+  function goStep2() {
+    let ok = true;
+    if (!document.getElementById('firstName').value.trim()) { setErr('firstName','firstErr',true); ok=false; } else setErr('firstName','firstErr',false);
+    if (!document.getElementById('lastName').value.trim()) { setErr('lastName','lastErr',true); ok=false; } else setErr('lastName','lastErr',false);
+    if (!isEmail(document.getElementById('email').value)) { setErr('email','emailErr',true); ok=false; } else setErr('email','emailErr',false);
+    if (document.getElementById('phone').value.trim().length < 7) { setErr('phone','phoneErr',true); ok=false; } else setErr('phone','phoneErr',false);
+    if (ok) setStep(2);
+  }
+  function goStep1() { setStep(1); }
+  function goStep3() {
+    const pw = document.getElementById('password').value;
+    const co = document.getElementById('confirm').value;
+    let ok = true;
+    if (pw.length < 8) { setErr('password','pwErr',true); ok=false; } else setErr('password','pwErr',false);
+    if (pw !== co) { setErr('confirm','confirmErr',true); ok=false; } else setErr('confirm','confirmErr',false);
+    if (ok) {
+      // Populate summary
+      const typeMap = {individual:'👤 Individual',business:'🏢 Business',agency:'🤝 Agency'};
+      document.getElementById('summaryName').textContent = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
+      document.getElementById('summaryEmail').textContent = document.getElementById('email').value;
+      document.getElementById('summaryPhone').textContent = document.getElementById('phone').value;
+      document.getElementById('summaryType').textContent = typeMap[document.getElementById('accountType').value] || '—';
+      setStep(3);
     }
+  }
+  function goStep2Back() { setStep(2); }
 
-    // Form submit
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('signupBtn');
-      const pass = document.getElementById('signupPassword').value;
-      const confirm = document.getElementById('signupConfirm').value;
-      const terms = document.getElementById('termsCheck').checked;
+  // Submit
+  document.getElementById('signupForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!document.getElementById('terms').checked) {
+      showToast('Please accept the Terms of Service to continue.', 'error');
+      return;
+    }
+    const btn = document.getElementById('submitBtn');
+    const txt = document.getElementById('submitTxt');
+    const spin = document.getElementById('spinner');
+    btn.disabled = true;
+    txt.style.display = 'none';
+    spin.style.display = 'block';
 
-      if (pass !== confirm) {
-        showToast('Passwords do not match. Please try again.');
-        return;
-      }
-      if (!terms) {
-        showToast('Please accept the Terms of Service to continue.');
-        return;
-      }
-
-      btn.textContent = 'Creating Account...';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
-
+    setTimeout(() => {
+      spin.style.display = 'none';
+      txt.style.display = '';
+      txt.textContent = '✓ Account Created!';
+      btn.style.background = 'var(--olive)';
+      btn.disabled = false;
+      showToast('Welcome to Walela Link! Redirecting… 🎉', 'success');
       setTimeout(() => {
-        btn.textContent = '✓ Account Created!';
-        btn.style.background = 'var(--olive)';
-        showToast('Account created successfully! Welcome to Walela Link. 🎉');
-        setTimeout(() => {
-          btn.textContent = 'Create Account →';
-          btn.disabled = false;
-          btn.style.opacity = '';
-          btn.style.background = '';
-        }, 3500);
-      }, 1500);
+        txt.textContent = 'Create Account →';
+        btn.style.background = '';
+        // window.location.href = 'dashboard.html';
+      }, 3000);
+    }, 1600);
+  });
+
+  // Social
+  function socialSignup(provider) { showToast('Connecting with ' + provider + '…'); }
+
+  // Ripple
+  document.querySelectorAll('.btn-submit').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      if (this.disabled) return;
+      const r = document.createElement('span');
+      r.className = 'ripple';
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+      this.appendChild(r);
+      setTimeout(()=>r.remove(), 600);
     });
-  </script>
+  });
+</script>
 </body>
 </html>
